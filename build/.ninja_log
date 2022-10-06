@@ -1,4 +1,0 @@
-# ninja log v5
-0	15	1665084234639887500	liblibmylisp.a	3954088ca96a355e
-1	22	1665084234649887514	CMakeFiles/mylisp.dir/src/main.cpp.o	edfc705553da04e4
-22	92	1665084234719887612	mylisp	d4fa0f2b8ceedce1
