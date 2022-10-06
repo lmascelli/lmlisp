@@ -1,0 +1,7 @@
+[
+{
+  "directory": "/home/leonardo/D/Projects/cpp/lmlisp/build",
+  "command": "/usr/bin/c++ -g -std=gnu++20 -o CMakeFiles/mylisp.dir/src/main.cpp.o -c /home/leonardo/D/Projects/cpp/lmlisp/src/main.cpp",
+  "file": "/home/leonardo/D/Projects/cpp/lmlisp/src/main.cpp"
+}
+]

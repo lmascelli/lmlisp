@@ -1,0 +1,4 @@
+/home/leonardo/D/Projects/cpp/lmlisp/build/CMakeFiles/libmylisp.dir
+/home/leonardo/D/Projects/cpp/lmlisp/build/CMakeFiles/mylisp.dir
+/home/leonardo/D/Projects/cpp/lmlisp/build/CMakeFiles/edit_cache.dir
+/home/leonardo/D/Projects/cpp/lmlisp/build/CMakeFiles/rebuild_cache.dir
