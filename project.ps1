@@ -17,10 +17,17 @@ function clean
   Remove-Item -Path "build" -Recurse -Force
 }
 
-function run($param)
+function run($params)
 {
   build
-  ./build/mylisp $param
+  ./build/test $params
+}
+
+function test($params)
+{
+  Push-Location ~/Projects/cpp/mal/impls/cpp.2/
+  ./project.ps1 $params
+  Pop-Location
 }
 
 if ($args[0])
@@ -37,7 +44,11 @@ if ($args[0])
     }
     "run"
     {
-      run($args[1])
+      run($args[1..($args.Length - 1)])
+    }
+    "test"
+    {
+      test($args[1])
     }
     default
     {

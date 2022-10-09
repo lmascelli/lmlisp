@@ -1,15 +1,17 @@
 cmake_minimum_required(VERSION 3.12)
-project(mylisp LANGUAGES CXX)
+project(lmlisp LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 set(SOURCES
-  lmlisp.hpp)
+  runtime.hpp     runtime.cpp     
+  reader.hpp      reader.cpp
+  lmlisp.hpp      lmlisp.cpp)
 list(TRANSFORM SOURCES PREPEND "src/")
-add_library(libmylisp ${SOURCES})
-set_target_properties(libmylisp PROPERTIES LINKER_LANGUAGE CXX)
+add_library(lmlisp ${SOURCES})
+set_target_properties(lmlisp PROPERTIES LINKER_LANGUAGE CXX)
 
-add_executable(mylisp
+add_executable(test
   src/main.cpp)
-target_link_libraries(mylisp libmylisp)
+target_link_libraries(test lmlisp)

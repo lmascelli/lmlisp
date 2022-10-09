@@ -16,6 +16,8 @@ some aspects
 
 ### build instructions (with CMake)
 ``` bash
+git clone https://github.com/lmascelli/lmlisp
+cd lmlisp
 mkdir build
 cd build
 cmake ..
@@ -24,5 +26,7 @@ cmake --build .
 
 ### build instructions (with powershell script)
 ``` ps1
+git clone https://github.com/lmascelli/lmlisp
+cd ./lmlisp
 ./project.ps1 build
 ```
