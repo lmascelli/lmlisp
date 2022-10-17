@@ -1,13 +1,14 @@
 #include "lmlisp.hpp"
 #include <iostream>
+#include <readline/readline.h>
 
 int main(int argc, char **argv) {
   lmlisp::Runtime runtime = lmlisp::lm_init({
       []() {
-        std::string input;
-        std::cout << "user> ";
-        std::cin >> input;
-        return input;
+        char *input = readline("user> ");
+        std::string ret = input;
+        free(input);
+        return ret;
       },
       [](std::string output) { std::cout << output << std::endl; },
   });
@@ -15,7 +16,7 @@ int main(int argc, char **argv) {
   case 1:
     runtime.repl();
     break;
-  case 3:
+  case 2:
     if (std::string(argv[1]) == "-f") {
       // TODO load file
       std::cout << "file" << std::endl;

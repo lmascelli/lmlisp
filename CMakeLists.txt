@@ -6,7 +6,9 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 set(SOURCES
   runtime.hpp     runtime.cpp     
+  types.hpp       types.cpp
   reader.hpp      reader.cpp
+  printer.hpp     printer.cpp
   lmlisp.hpp      lmlisp.cpp)
 list(TRANSFORM SOURCES PREPEND "src/")
 add_library(lmlisp ${SOURCES})
@@ -14,4 +16,4 @@ set_target_properties(lmlisp PROPERTIES LINKER_LANGUAGE CXX)
 
 add_executable(test
   src/main.cpp)
-target_link_libraries(test lmlisp)
+target_link_libraries(test lmlisp readline)
