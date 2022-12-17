@@ -16,12 +16,14 @@ std::string Reader::next() {
         "Going over list of tokens bound. Maybe an unclosed list or string");
     abort();
   }
-  return tokens[pos++];
+  return tokens[++pos];
 }
 
 std::string Reader::peek() { return tokens[pos]; }
 
-void Reader::read_str(const std::string &input) { tokens = tokenize(input); }
+void Reader::read_str(const std::string &input) {
+  tokens = tokenize(input);
+}
 
 std::vector<std::string> tokenize(std::string input) {
   std::vector<std::string> tokens;

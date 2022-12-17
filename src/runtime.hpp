@@ -6,7 +6,7 @@
 namespace lmlisp {
 
 struct Runtime_external_functions {
-  std::function<std::string(void)> reader;
+  std::function<std::string(std::string)> reader;
   std::function<void(std::string)> printer;
 };
 
@@ -30,7 +30,7 @@ private:
    * in a returned std::string
    * */
 
-  std::function<std::string(void)> reader;
+  std::function<std::string(std::string)> reader;
 
   /* printer
    * same as reader but for displaying text to the user. It

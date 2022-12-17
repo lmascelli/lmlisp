@@ -2,3 +2,4 @@
 .cache/
 build/
 test.res
+.clangd
