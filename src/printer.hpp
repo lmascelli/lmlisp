@@ -7,7 +7,7 @@ namespace lmlisp {
 class Printer {
 public:
   Printer(std::function<void(std::string)> printer);
-  std::string pr_str(ElementP el);
+  std::string pr_str(ElementP el, bool print_readably = false);
 
 private:
   std::function<void(std::string)> printer;

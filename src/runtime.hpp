@@ -12,7 +12,7 @@ struct Runtime_external_functions {
 
 class Runtime {
 public:
-  Runtime(Runtime_external_functions externals);
+  Runtime(Runtime_external_functions &externals);
   void repl();
   std::string rep(std::string expr);
 
@@ -30,12 +30,12 @@ private:
    * in a returned std::string
    * */
 
-  std::function<std::string(std::string)> reader;
+  std::function<std::string(std::string)> &reader;
 
   /* printer
    * same as reader but for displaying text to the user. It
    * accept a string as input and must print it to the screen
    * */
-  std::function<void(std::string)> printer;
+  std::function<void(std::string)> &printer;
 };
 } // namespace lmlisp

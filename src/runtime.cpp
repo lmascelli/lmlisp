@@ -3,9 +3,8 @@
 #include "reader.hpp"
 
 namespace lmlisp {
-  Runtime::Runtime(Runtime_external_functions externals) {
-    reader = externals.reader;
-    printer = externals.printer;
+  Runtime::Runtime(Runtime_external_functions &externals): reader(externals.reader),
+							   printer(externals.printer){
     running = false;
   }
 
@@ -24,13 +23,12 @@ namespace lmlisp {
   }
 
   ElementP Runtime::EVAL(ElementP ast) {
-    printer("here"); 
     return ast;
   }
 
   std::string Runtime::PRINT(ElementP res) const {
     Printer p(printer);
-    return p.pr_str(res);
+    return p.pr_str(res, true);
   }
 
   std::string Runtime::rep(std::string expr) { return PRINT(EVAL(READ(expr))); }
