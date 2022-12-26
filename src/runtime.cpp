@@ -67,22 +67,20 @@ ElementP Runtime::eval_ast(ElementP ast, EnvironmentP env) {
     }
     return ret;
   }
-  case VEC:
-    {
-      VecP ret = vec()->to<Vec>();
-      for (int i = 0; i < ast->to<List>()->size(); i++) {
-	ret->append(EVAL(ast->to<List>()->at(i), env));
-      }
-      return ret;
+  case VEC: {
+    VecP ret = vec()->to<Vec>();
+    for (int i = 0; i < ast->to<List>()->size(); i++) {
+      ret->append(EVAL(ast->to<List>()->at(i), env));
     }
-  case DICT:
-    {
-      DictP ret = dict()->to<Dict>();
-      ListP keys = ast->to<Dict>()->keys()->to<List>();
-      for (int i=0; i<keys->size(); i++)
-	ret->append(keys->at(i), EVAL(ast->to<Dict>()->get(keys->at(i)), env));
-      return ret;
-    }
+    return ret;
+  }
+  case DICT: {
+    DictP ret = dict()->to<Dict>();
+    ListP keys = ast->to<Dict>()->keys()->to<List>();
+    for (int i = 0; i < keys->size(); i++)
+      ret->append(keys->at(i), EVAL(ast->to<Dict>()->get(keys->at(i)), env));
+    return ret;
+  }
   default:
     return ast;
   }
