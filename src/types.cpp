@@ -9,6 +9,29 @@ Element::Element(TYPES type) { this->type = type; }
 // NIL
 Nil::Nil() : Element(NIL) {}
 
+// FUNCTION
+Function::Function(std::function<ElementP(ElementP)> f_native)
+    : Element(FUNCTION) {
+  native = true;
+  this->f_native = f_native;
+}
+
+bool Function::is_native() const { return native; }
+
+ElementP Function::apply(ElementP args) const { return f_native(args); }
+
+// ENVIRONMENT
+Environment::Environment() : Element(ENVIRONMENT) {}
+ElementP Environment::get(std::string key) const {
+  if (env.contains(key)) {
+    return env.at(key);
+  } else
+    return nil();
+}
+void Environment::set(std::string key, ElementP value) {
+  env.insert_or_assign(key, value);
+}
+
 // BOOLEAN
 Boolean::Boolean(bool logic_value)
     : Element(BOOLEAN), logic_value(logic_value) {}
@@ -67,7 +90,7 @@ ElementP Dict::keys() const {
   for (std::pair<std::string, ElementP> el : elements) {
     keys_strings.push_back(el.first);
   }
-  for (int i = keys_strings.size()-1; i >= 0; i--) {
+  for (int i = keys_strings.size() - 1; i >= 0; i--) {
     if (keys_strings[i].starts_with(":")) {
       ret->to<List>()->append(kw(keys_strings[i].substr(1)));
     } else {
@@ -85,7 +108,7 @@ float Number::value() const { return data; }
 Number::Number(int number) : Element(NUMBER) { this->data = number; }
 int Number::value() const { return data; }
 #endif
-  
+
 // SYMBOL
 Symbol::Symbol(std::string symbol) : Element(SYMBOL) { this->data = symbol; }
 std::string Symbol::value() const { return data; }
@@ -110,4 +133,7 @@ ElementP num(float number) { return std::make_shared<Number>(number); }
 ElementP sym(std::string symbol) { return std::make_shared<Symbol>(symbol); }
 ElementP kw(std::string keyword) { return std::make_shared<Keyword>(keyword); }
 ElementP str(std::string string) { return std::make_shared<String>(string); }
+ElementP func(std::function<ElementP(ElementP)> f) {
+  return std::make_shared<Function>(f);
+}
 } // namespace lmlisp

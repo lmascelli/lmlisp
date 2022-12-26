@@ -9,7 +9,8 @@ set(SOURCES
   types.hpp       types.cpp
   reader.hpp      reader.cpp
   printer.hpp     printer.cpp
-  lmlisp.hpp      lmlisp.cpp)
+  lmlisp.hpp      lmlisp.cpp
+  core.hpp	  core.cpp)
 list(TRANSFORM SOURCES PREPEND "src/")
 add_library(lmlisp ${SOURCES})
 set_target_properties(lmlisp PROPERTIES LINKER_LANGUAGE CXX)

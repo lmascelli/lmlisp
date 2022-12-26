@@ -18,10 +18,12 @@ public:
 
 private:
   bool running;
+  EnvironmentP core_runtime;
   ElementP READ(std::string input) const;
-  ElementP EVAL(ElementP ast);
+  ElementP EVAL(ElementP ast, EnvironmentP env);
   std::string PRINT(ElementP expr) const;
-
+  ElementP eval_ast(ElementP ast, EnvironmentP env);
+  
   /****************** INTERFACES ***************/
 
   /* reader
