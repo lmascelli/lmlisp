@@ -78,9 +78,14 @@ ElementP Dict::keys() const {
 }
 
 // NUMBER
+#ifdef _LM_WITH_FLOAT
 Number::Number(float number) : Element(NUMBER) { this->data = number; }
 float Number::value() const { return data; }
-
+#else
+Number::Number(int number) : Element(NUMBER) { this->data = number; }
+int Number::value() const { return data; }
+#endif
+  
 // SYMBOL
 Symbol::Symbol(std::string symbol) : Element(SYMBOL) { this->data = symbol; }
 std::string Symbol::value() const { return data; }

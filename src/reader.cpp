@@ -3,7 +3,6 @@
 // #include <cctype>
 // #include <cstdlib>
 
-
 // #define LM_DEBUG
 #ifdef LM_DEBUG
 // #define _LM_DEBUG
@@ -154,16 +153,32 @@ std::vector<std::string> Reader::tokenize(std::string input) {
   Brackets_Checker bc(printer);
   TOKEN_TYPE current_token = UNKNOWN;
   unsigned int index = 0, offset = 0;
+  bool last_is_escape = false;
   while (index + offset < input.length()) {
     char ch = input.at(index + offset);
     switch (current_token) {
     case STRING:
-      if (ch == '"' and input.at(index + offset - 1) != '\\') {
+      if (ch == '"' and not last_is_escape) {
+        last_is_escape = false;
         bc.push_bracket('"');
         current_token = UNKNOWN;
         add_token(input.substr(index, offset + 1));
         index += offset + 1;
         offset = 0;
+      } else if (ch == '\\') {
+        if (last_is_escape)
+          last_is_escape = false;
+        else
+          last_is_escape = true;
+        offset++;
+      } else if (last_is_escape) {
+        switch (ch) {
+	case '"':
+        case 'n':
+        case 't':
+          offset++;
+          last_is_escape = false;
+        }
       } else
         offset++;
       break;
@@ -215,13 +230,13 @@ std::vector<std::string> Reader::tokenize(std::string input) {
           offset = 0;
           break;
         } else {
-	  if (offset != 0)
-	    add_token(input.substr(index, offset));
-	  add_token(input.substr(index + offset, 1));
-	  index += offset + 1;
-	  offset = 0;
-	  break;
-	}
+          if (offset != 0)
+            add_token(input.substr(index, offset));
+          add_token(input.substr(index + offset, 1));
+          index += offset + 1;
+          offset = 0;
+          break;
+        }
       case '(':
         bc.push_bracket('(');
         if (offset != 0)
@@ -283,6 +298,7 @@ std::vector<std::string> Reader::tokenize(std::string input) {
         break;
       case '\n':
       case '\t':
+      case ',': // TODO test if ignoring comma is correct
         if (offset > 0)
           add_token(input.substr(index, offset));
         index += offset + 1;
@@ -301,13 +317,13 @@ std::vector<std::string> Reader::tokenize(std::string input) {
     }
 #ifdef _LM_DEBUG_TK
     printer(input);
-    for (int i=0; i<index; i++)
+    for (int i = 0; i < index; i++)
       cout << " ";
     cout << "*" << endl;
-    for (int i=0; i<(index+offset); i++)
+    for (int i = 0; i < (index + offset); i++)
       cout << " ";
     cout << "^" << endl;
-    for (auto el: tokens){
+    for (auto el : tokens) {
       cout << el << " ";
     }
     std::cin.get();
@@ -411,11 +427,17 @@ ElementP Reader::read_atom() {
   printer("atom " + peek());
 #endif
   char c = peek().at(0);
+  // ---------------------------------------------------------------------------
+  //                             NUMBER
+  // ---------------------------------------------------------------------------
   if ((c >= '0' and c <= '9') or c == '-' or c == '+') {
+    int digit_number = 0;
     bool period = false, comma = false, is_number = true,
-      minus_mantissa = false; // maybe implement e
+         minus_mantissa = false,
+         at_least_one_digit = false; // maybe implement e
     for (char d : peek()) {
       if (std::isdigit(d)) {
+        at_least_one_digit = true;
         continue;
       } else if (d == '.' and not period) {
         period = true;
@@ -423,36 +445,51 @@ ElementP Reader::read_atom() {
       } else if (d == ',' and not comma) {
         comma = true;
         continue;
-      } else if (d == '-' and not minus_mantissa) {
-	minus_mantissa = true;
-	continue;
+      } else if (d == '-' and not minus_mantissa and digit_number == 0) {
+        minus_mantissa = true;
+        continue;
       } else {
         is_number = false;
         break;
       }
+      digit_number++;
     }
-    if (is_number) {
+    if (is_number and at_least_one_digit) {
 #ifdef _LM_DEBUG
       printer("number " + peek());
 #endif
-      return num(stof(peek()));
+      return num(stoi(peek()));
+      //      return num(stof(peek()));  // TODO maybe replace with stof() for float;
     } else {
+      // -----------------------------------------------------------------------
+      //                       NOT NUMBER BUT SYMBOL
+      // -----------------------------------------------------------------------
 #ifdef _LM_DEBUG
       printer("symbol " + peek());
 #endif
       return sym(peek());
     }
   } else if (c == '"') {
+    // -------------------------------------------------------------------------
+    //                             STRING
+    // -------------------------------------------------------------------------
+
 #ifdef _LM_DEBUG
     printer("string " + peek());
 #endif
     return str(peek().substr(1, peek().length() - 2));
   } else if (c == ':') {
+    // -------------------------------------------------------------------------
+    //                             KEYWORD
+    // -------------------------------------------------------------------------
     return kw(peek().substr(1));
 #ifdef _LM_DEBUG
     printer("keyword " + peek());
 #endif
   } else {
+    // -------------------------------------------------------------------------
+    //                             MACRO EXPANDS
+    // -------------------------------------------------------------------------
     switch (c) {
     // deref
     case '@': {
@@ -498,30 +535,32 @@ ElementP Reader::read_atom() {
     }
     case '~': {
       if (peek().length() == 1) {
-	// unquote
-	ElementP ret_unquote = list();
-	ret_unquote->to<List>()->append(sym("unquote"));
-	ret_unquote->to<List>()->append(read_form());
+        // unquote
+        ElementP ret_unquote = list();
+        ret_unquote->to<List>()->append(sym("unquote"));
+        ret_unquote->to<List>()->append(read_form());
 #ifdef _LM_DEBUG
-	printer("unquote " + peek());
+        printer("unquote " + peek());
 #endif
-	return ret_unquote;
+        return ret_unquote;
       } else if (peek().at(1) == '@') {
-	// splice-unquote
-	ElementP ret_splice_unquote = list();
-	ret_splice_unquote->to<List>()->append(sym("splice-unquote"));
-	ret_splice_unquote->to<List>()->append(read_form());
+        // splice-unquote
+        ElementP ret_splice_unquote = list();
+        ret_splice_unquote->to<List>()->append(sym("splice-unquote"));
+        ret_splice_unquote->to<List>()->append(read_form());
 #ifdef _LM_DEBUG
-	printer("splice-unquote " + peek());
+        printer("splice-unquote " + peek());
 #endif
         return ret_splice_unquote;
       } else {
-	exit(1);
+        exit(1);
       }
     }
-
       // normal symbol. no macro
     default:
+      // -----------------------------------------------------------------------
+      //                             SYMBOL
+      // -----------------------------------------------------------------------
 #ifdef _LM_DEBUG
       printer("symbol " + peek());
 #endif

@@ -24,13 +24,14 @@ std::string Printer::pr_str(ElementP el, bool print_readably) {
     return std::to_string(el->to<Number>()->value());
   case STRING:
     if (print_readably) {
+      return "\"" + el->to<String>()->value() + "\"";
+    } else {
       std::string ret = el->to<String>()->value();
       replace_str(ret, "\\n", "\n");
       replace_str(ret, "\\\"", "\"");
       replace_str(ret, "\\\\", "\\");
       return "\"" + ret + "\"";
-    } else
-      return "\"" + el->to<String>()->value() + "\"";
+    }
   case SYMBOL:
     return el->to<Symbol>()->value();
   case KEYWORD:

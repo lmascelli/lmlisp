@@ -98,6 +98,7 @@ namespace lmlisp {
   };
   
   // NUMBER
+#ifdef _LM_WITH_FLOAT
   class Number : public Element {
   public:
     Number(float number);
@@ -106,6 +107,16 @@ namespace lmlisp {
   private:
     float data;
   };
+#else
+  class Number : public Element {
+  public:
+    Number(int number);
+    int value() const;
+
+  private:
+    int data;
+  };
+#endif
 
   // SYMBOL
   class Symbol : public Element {
