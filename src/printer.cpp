@@ -1,9 +1,6 @@
 #include "printer.hpp"
 
 namespace lmlisp {
-Printer::Printer(std::function<void(std::string)> printer) {
-  this->printer = printer;
-}
 
 inline void replace_str(std::string &s, const std::string &old_s,
                         const std::string &new_s) {

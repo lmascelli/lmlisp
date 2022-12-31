@@ -1,9 +1,16 @@
 #include "core.hpp"
+#include "printer.hpp"
 
 namespace lmlisp {
 
 EnvironmentP init_core(Runtime_external_functions &f) {
-  EnvironmentP core = std::make_shared<Environment>();
+  EnvironmentP core = std::make_shared<Environment>(nil());
+  Printer p;
+
+  core->set("pr-str", func([&f, &p](ElementP args){
+    f.printer(p.pr_str(args));
+    return nil();
+  }));
   
   core->set("+", func([](ElementP args) {
               if (args->type == LIST) {

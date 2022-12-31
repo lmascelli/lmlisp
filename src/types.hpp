@@ -72,14 +72,16 @@ private:
 
 // ENVIRONMENT
 
-class Environment : public Element {
+  class Environment : public Element {
 public:
-  Environment();
-  ElementP get(std::string key) const;
+  Environment(ElementP outer);
+  ElementP get(std::string key);
+  ElementP find(std::string key);
   void set(std::string key, ElementP value);
 
 private:
   std::unordered_map<std::string, ElementP> env;
+  EnvironmentP outer;
 };
 
 // BOOLEAN
@@ -97,8 +99,10 @@ class List : public Element {
 public:
   List();
   void append(ElementP el);
-  ElementP &at(unsigned int i);
+  ElementP at(unsigned int i) const;
   unsigned int size() const;
+  bool at_least(int n) const;
+  bool check_nth(int n, TYPES t) const;
 
 private:
   std::vector<ElementP> elements;
@@ -109,8 +113,10 @@ class Vec : public Element {
 public:
   Vec();
   void append(ElementP el);
-  ElementP &at(unsigned int i);
+  ElementP at(unsigned int i) const;
   unsigned int size() const;
+  bool at_least(int n) const;
+  bool check_nth(int n, TYPES t) const;
 
 private:
   std::vector<ElementP> elements;
@@ -191,4 +197,10 @@ ElementP sym(std::string symbol);
 ElementP kw(std::string keyword);
 ElementP str(std::string string);
 ElementP func(std::function<ElementP(ElementP)> f);
+ElementP environment(EnvironmentP outer);
+
+// UTILITY FUNCTIONS
+
+inline bool is_nil(ElementP el);
+
 } // namespace lmlisp

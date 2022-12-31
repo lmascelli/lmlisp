@@ -21,10 +21,23 @@ bool Function::is_native() const { return native; }
 ElementP Function::apply(ElementP args) const { return f_native(args); }
 
 // ENVIRONMENT
-Environment::Environment() : Element(ENVIRONMENT) {}
-ElementP Environment::get(std::string key) const {
-  if (env.contains(key)) {
-    return env.at(key);
+Environment::Environment(ElementP outer) : Element(ENVIRONMENT) {
+  this->outer = outer->to<Environment>();
+}
+
+ElementP Environment::find(std::string key) {
+  if (env.contains(key))
+    return shared_from_this();
+  else if (not is_nil(outer))
+    return outer->find(key);
+  else
+    return nil();
+}
+
+ElementP Environment::get(std::string key) {
+  ElementP found_env = find(key);
+  if (not is_nil(found_env)) {
+    return found_env->to<Environment>()->env.at(key);
   } else
     return nil();
 }
@@ -40,15 +53,29 @@ bool Boolean::value() const { return logic_value; }
 // LIST
 List::List() : Element(LIST) {}
 void List::append(ElementP el) { elements.push_back(el); }
-ElementP &List::at(unsigned int i) { return elements[i]; }
+ElementP List::at(unsigned int i) const { return elements[i]; }
 unsigned int List::size() const { return elements.size(); }
+bool List::at_least(int n) const { return size() >= n; }
+bool List::check_nth(int n, TYPES t) const {
+  if (at_least(n) and at(n)->type == t)
+    return true;
+  else
+    return false;
+}
 
 // VEC
 Vec::Vec() : Element(VEC) {}
 void Vec::append(ElementP el) { elements.push_back(el); }
-ElementP &Vec::at(unsigned int i) { return elements[i]; }
+ElementP Vec::at(unsigned int i) const { return elements[i]; }
 unsigned int Vec::size() const { return elements.size(); }
-
+bool Vec::at_least(int n) const { return size() >= n; }
+bool Vec::check_nth(int n, TYPES t) const {
+  if (at_least(n) and at(n)->type == t)
+    return true;
+  else
+    return false;
+}
+  
 // DICT
 Dict::Dict() : Element(DICT) {}
 
@@ -136,4 +163,11 @@ ElementP str(std::string string) { return std::make_shared<String>(string); }
 ElementP func(std::function<ElementP(ElementP)> f) {
   return std::make_shared<Function>(f);
 }
+ElementP environment(EnvironmentP outer) {
+  return std::make_shared<Environment>(outer);
+}
+// UTILITY FUNCTIONS
+
+inline bool is_nil(ElementP el) { return el->type == NIL; }
+
 } // namespace lmlisp
