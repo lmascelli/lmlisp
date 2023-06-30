@@ -168,6 +168,19 @@ step2_eval/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/step2_eval.dir/build.make CMakeFiles/step2_eval.dir/build
 .PHONY : step2_eval/fast
 
+#=============================================================================
+# Target rules for targets named step3_env
+
+# Build rule for target.
+step3_env: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 step3_env
+.PHONY : step3_env
+
+# fast build rule for target.
+step3_env/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/step3_env.dir/build.make CMakeFiles/step3_env.dir/build
+.PHONY : step3_env/fast
+
 src/core.o: src/core.cpp.o
 .PHONY : src/core.o
 
@@ -384,6 +397,30 @@ step2_eval.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/step2_eval.dir/build.make CMakeFiles/step2_eval.dir/step2_eval.cpp.s
 .PHONY : step2_eval.cpp.s
 
+step3_env.o: step3_env.cpp.o
+.PHONY : step3_env.o
+
+# target to build an object file
+step3_env.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/step3_env.dir/build.make CMakeFiles/step3_env.dir/step3_env.cpp.o
+.PHONY : step3_env.cpp.o
+
+step3_env.i: step3_env.cpp.i
+.PHONY : step3_env.i
+
+# target to preprocess a source file
+step3_env.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/step3_env.dir/build.make CMakeFiles/step3_env.dir/step3_env.cpp.i
+.PHONY : step3_env.cpp.i
+
+step3_env.s: step3_env.cpp.s
+.PHONY : step3_env.s
+
+# target to generate assembly for a file
+step3_env.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/step3_env.dir/build.make CMakeFiles/step3_env.dir/step3_env.cpp.s
+.PHONY : step3_env.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -396,6 +433,7 @@ help:
 	@echo "... step0_repl"
 	@echo "... step1_read_print"
 	@echo "... step2_eval"
+	@echo "... step3_env"
 	@echo "... src/core.o"
 	@echo "... src/core.i"
 	@echo "... src/core.s"
@@ -423,6 +461,9 @@ help:
 	@echo "... step2_eval.o"
 	@echo "... step2_eval.i"
 	@echo "... step2_eval.s"
+	@echo "... step3_env.o"
+	@echo "... step3_env.i"
+	@echo "... step3_env.s"
 .PHONY : help
 
 

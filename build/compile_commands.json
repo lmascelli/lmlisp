@@ -52,5 +52,11 @@
   "command": "/usr/bin/c++   -g -std=gnu++20 -o CMakeFiles/step2_eval.dir/step2_eval.cpp.o -c /home/leonardo/data/projects/lmlisp/step2_eval.cpp",
   "file": "/home/leonardo/data/projects/lmlisp/step2_eval.cpp",
   "output": "CMakeFiles/step2_eval.dir/step2_eval.cpp.o"
+},
+{
+  "directory": "/home/leonardo/data/projects/lmlisp/build",
+  "command": "/usr/bin/c++   -g -std=gnu++20 -o CMakeFiles/step3_env.dir/step3_env.cpp.o -c /home/leonardo/data/projects/lmlisp/step3_env.cpp",
+  "file": "/home/leonardo/data/projects/lmlisp/step3_env.cpp",
+  "output": "CMakeFiles/step3_env.dir/step3_env.cpp.o"
 }
 ]

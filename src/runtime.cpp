@@ -304,7 +304,8 @@ ElementP EVAL(ElementP ast, EnvironmentP env) {
           else if (check::is_special_form(ast_first, "def!")) {
             if (u_ast->at_least(3) and u_ast->check_nth(1, SYMBOL)) {
               ElementP ret = EVAL(u_ast->at(2), env);
-              env->set(u_ast->at(1)->to<Symbol>()->value(), ret);
+              if (ret->type != EXCEPTION)
+                env->set(u_ast->at(1)->to<Symbol>()->value(), ret);
               return ret;
             } else
               return exc("def!: wrong argument passed");

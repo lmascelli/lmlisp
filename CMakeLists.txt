@@ -35,3 +35,7 @@ target_link_libraries(step1_read_print ${PROJECT_NAME})
 add_executable(step2_eval
   "step2_eval.cpp")
 target_link_libraries(step2_eval ${PROJECT_NAME})
+
+add_executable(step3_env
+  "step3_env.cpp")
+target_link_libraries(step3_env ${PROJECT_NAME})
