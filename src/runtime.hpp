@@ -1,13 +1,11 @@
 #pragma once
-#include <string>
+#include "externals.hpp"
+#include "types.hpp"
 
 namespace lmlisp {
-  extern std::string readln(std::string prompt = "");
-  extern void writeln(std::string line);
-  
-  std::string READ(std::string input);
-  std::string EVAL(std::string input);
-  std::string PRINT(std::string input);
+  ElementP READ(std::string input);
+  ElementP EVAL(ElementP input);
+  std::string PRINT(ElementP input);
 
   std::string rep(std::string input);
 }

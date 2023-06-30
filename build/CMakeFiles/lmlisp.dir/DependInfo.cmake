@@ -8,7 +8,10 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/home/leonardo/data/projects/lmlisp/src/printer.cpp" "CMakeFiles/lmlisp.dir/src/printer.cpp.o" "gcc" "CMakeFiles/lmlisp.dir/src/printer.cpp.o.d"
+  "/home/leonardo/data/projects/lmlisp/src/reader.cpp" "CMakeFiles/lmlisp.dir/src/reader.cpp.o" "gcc" "CMakeFiles/lmlisp.dir/src/reader.cpp.o.d"
   "/home/leonardo/data/projects/lmlisp/src/runtime.cpp" "CMakeFiles/lmlisp.dir/src/runtime.cpp.o" "gcc" "CMakeFiles/lmlisp.dir/src/runtime.cpp.o.d"
+  "/home/leonardo/data/projects/lmlisp/src/types.cpp" "CMakeFiles/lmlisp.dir/src/types.cpp.o" "gcc" "CMakeFiles/lmlisp.dir/src/types.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

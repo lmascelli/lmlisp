@@ -69,10 +69,52 @@ include CMakeFiles/lmlisp.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/lmlisp.dir/flags.make
 
+CMakeFiles/lmlisp.dir/src/types.cpp.o: CMakeFiles/lmlisp.dir/flags.make
+CMakeFiles/lmlisp.dir/src/types.cpp.o: /home/leonardo/data/projects/lmlisp/src/types.cpp
+CMakeFiles/lmlisp.dir/src/types.cpp.o: CMakeFiles/lmlisp.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/leonardo/data/projects/lmlisp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/lmlisp.dir/src/types.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lmlisp.dir/src/types.cpp.o -MF CMakeFiles/lmlisp.dir/src/types.cpp.o.d -o CMakeFiles/lmlisp.dir/src/types.cpp.o -c /home/leonardo/data/projects/lmlisp/src/types.cpp
+
+CMakeFiles/lmlisp.dir/src/types.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/lmlisp.dir/src/types.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/leonardo/data/projects/lmlisp/src/types.cpp > CMakeFiles/lmlisp.dir/src/types.cpp.i
+
+CMakeFiles/lmlisp.dir/src/types.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/lmlisp.dir/src/types.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/leonardo/data/projects/lmlisp/src/types.cpp -o CMakeFiles/lmlisp.dir/src/types.cpp.s
+
+CMakeFiles/lmlisp.dir/src/reader.cpp.o: CMakeFiles/lmlisp.dir/flags.make
+CMakeFiles/lmlisp.dir/src/reader.cpp.o: /home/leonardo/data/projects/lmlisp/src/reader.cpp
+CMakeFiles/lmlisp.dir/src/reader.cpp.o: CMakeFiles/lmlisp.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/leonardo/data/projects/lmlisp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/lmlisp.dir/src/reader.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lmlisp.dir/src/reader.cpp.o -MF CMakeFiles/lmlisp.dir/src/reader.cpp.o.d -o CMakeFiles/lmlisp.dir/src/reader.cpp.o -c /home/leonardo/data/projects/lmlisp/src/reader.cpp
+
+CMakeFiles/lmlisp.dir/src/reader.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/lmlisp.dir/src/reader.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/leonardo/data/projects/lmlisp/src/reader.cpp > CMakeFiles/lmlisp.dir/src/reader.cpp.i
+
+CMakeFiles/lmlisp.dir/src/reader.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/lmlisp.dir/src/reader.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/leonardo/data/projects/lmlisp/src/reader.cpp -o CMakeFiles/lmlisp.dir/src/reader.cpp.s
+
+CMakeFiles/lmlisp.dir/src/printer.cpp.o: CMakeFiles/lmlisp.dir/flags.make
+CMakeFiles/lmlisp.dir/src/printer.cpp.o: /home/leonardo/data/projects/lmlisp/src/printer.cpp
+CMakeFiles/lmlisp.dir/src/printer.cpp.o: CMakeFiles/lmlisp.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/leonardo/data/projects/lmlisp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/lmlisp.dir/src/printer.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lmlisp.dir/src/printer.cpp.o -MF CMakeFiles/lmlisp.dir/src/printer.cpp.o.d -o CMakeFiles/lmlisp.dir/src/printer.cpp.o -c /home/leonardo/data/projects/lmlisp/src/printer.cpp
+
+CMakeFiles/lmlisp.dir/src/printer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/lmlisp.dir/src/printer.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/leonardo/data/projects/lmlisp/src/printer.cpp > CMakeFiles/lmlisp.dir/src/printer.cpp.i
+
+CMakeFiles/lmlisp.dir/src/printer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/lmlisp.dir/src/printer.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/leonardo/data/projects/lmlisp/src/printer.cpp -o CMakeFiles/lmlisp.dir/src/printer.cpp.s
+
 CMakeFiles/lmlisp.dir/src/runtime.cpp.o: CMakeFiles/lmlisp.dir/flags.make
 CMakeFiles/lmlisp.dir/src/runtime.cpp.o: /home/leonardo/data/projects/lmlisp/src/runtime.cpp
 CMakeFiles/lmlisp.dir/src/runtime.cpp.o: CMakeFiles/lmlisp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/leonardo/data/projects/lmlisp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/lmlisp.dir/src/runtime.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/leonardo/data/projects/lmlisp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/lmlisp.dir/src/runtime.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lmlisp.dir/src/runtime.cpp.o -MF CMakeFiles/lmlisp.dir/src/runtime.cpp.o.d -o CMakeFiles/lmlisp.dir/src/runtime.cpp.o -c /home/leonardo/data/projects/lmlisp/src/runtime.cpp
 
 CMakeFiles/lmlisp.dir/src/runtime.cpp.i: cmake_force
@@ -85,15 +127,21 @@ CMakeFiles/lmlisp.dir/src/runtime.cpp.s: cmake_force
 
 # Object files for target lmlisp
 lmlisp_OBJECTS = \
+"CMakeFiles/lmlisp.dir/src/types.cpp.o" \
+"CMakeFiles/lmlisp.dir/src/reader.cpp.o" \
+"CMakeFiles/lmlisp.dir/src/printer.cpp.o" \
 "CMakeFiles/lmlisp.dir/src/runtime.cpp.o"
 
 # External object files for target lmlisp
 lmlisp_EXTERNAL_OBJECTS =
 
+liblmlisp.a: CMakeFiles/lmlisp.dir/src/types.cpp.o
+liblmlisp.a: CMakeFiles/lmlisp.dir/src/reader.cpp.o
+liblmlisp.a: CMakeFiles/lmlisp.dir/src/printer.cpp.o
 liblmlisp.a: CMakeFiles/lmlisp.dir/src/runtime.cpp.o
 liblmlisp.a: CMakeFiles/lmlisp.dir/build.make
 liblmlisp.a: CMakeFiles/lmlisp.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/leonardo/data/projects/lmlisp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library liblmlisp.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/leonardo/data/projects/lmlisp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX static library liblmlisp.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/lmlisp.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/lmlisp.dir/link.txt --verbose=$(VERBOSE)
 

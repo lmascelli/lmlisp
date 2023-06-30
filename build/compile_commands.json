@@ -1,6 +1,24 @@
 [
 {
   "directory": "/home/leonardo/data/projects/lmlisp/build",
+  "command": "/usr/bin/c++   -g -std=gnu++20 -Wall -Wextra -Wpedantic -Werror -o CMakeFiles/lmlisp.dir/src/types.cpp.o -c /home/leonardo/data/projects/lmlisp/src/types.cpp",
+  "file": "/home/leonardo/data/projects/lmlisp/src/types.cpp",
+  "output": "CMakeFiles/lmlisp.dir/src/types.cpp.o"
+},
+{
+  "directory": "/home/leonardo/data/projects/lmlisp/build",
+  "command": "/usr/bin/c++   -g -std=gnu++20 -Wall -Wextra -Wpedantic -Werror -o CMakeFiles/lmlisp.dir/src/reader.cpp.o -c /home/leonardo/data/projects/lmlisp/src/reader.cpp",
+  "file": "/home/leonardo/data/projects/lmlisp/src/reader.cpp",
+  "output": "CMakeFiles/lmlisp.dir/src/reader.cpp.o"
+},
+{
+  "directory": "/home/leonardo/data/projects/lmlisp/build",
+  "command": "/usr/bin/c++   -g -std=gnu++20 -Wall -Wextra -Wpedantic -Werror -o CMakeFiles/lmlisp.dir/src/printer.cpp.o -c /home/leonardo/data/projects/lmlisp/src/printer.cpp",
+  "file": "/home/leonardo/data/projects/lmlisp/src/printer.cpp",
+  "output": "CMakeFiles/lmlisp.dir/src/printer.cpp.o"
+},
+{
+  "directory": "/home/leonardo/data/projects/lmlisp/build",
   "command": "/usr/bin/c++   -g -std=gnu++20 -Wall -Wextra -Wpedantic -Werror -o CMakeFiles/lmlisp.dir/src/runtime.cpp.o -c /home/leonardo/data/projects/lmlisp/src/runtime.cpp",
   "file": "/home/leonardo/data/projects/lmlisp/src/runtime.cpp",
   "output": "CMakeFiles/lmlisp.dir/src/runtime.cpp.o"
@@ -10,5 +28,11 @@
   "command": "/usr/bin/c++   -g -std=gnu++20 -o CMakeFiles/step0_repl.dir/step0_repl.cpp.o -c /home/leonardo/data/projects/lmlisp/step0_repl.cpp",
   "file": "/home/leonardo/data/projects/lmlisp/step0_repl.cpp",
   "output": "CMakeFiles/step0_repl.dir/step0_repl.cpp.o"
+},
+{
+  "directory": "/home/leonardo/data/projects/lmlisp/build",
+  "command": "/usr/bin/c++   -g -std=gnu++20 -o CMakeFiles/step1_read_print.dir/step1_read_print.cpp.o -c /home/leonardo/data/projects/lmlisp/step1_read_print.cpp",
+  "file": "/home/leonardo/data/projects/lmlisp/step1_read_print.cpp",
+  "output": "CMakeFiles/step1_read_print.dir/step1_read_print.cpp.o"
 }
 ]

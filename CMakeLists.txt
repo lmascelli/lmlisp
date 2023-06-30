@@ -10,7 +10,11 @@ project(${PROJECT_NAME} LANGUAGES CXX)
 include("cmake/compiler.cmake")
 
 set(SOURCES
-  runtime.cpp)
+  types.cpp
+  reader.cpp
+  printer.cpp
+  runtime.cpp
+  )
 
 list(TRANSFORM SOURCES PREPEND "src/")
 
@@ -21,3 +25,7 @@ target_link_libraries(${PROJECT_NAME} PRIVATE
 add_executable(step0_repl
   "step0_repl.cpp")
 target_link_libraries(step0_repl ${PROJECT_NAME})
+
+add_executable(step1_read_print
+  "step1_read_print.cpp")
+target_link_libraries(step1_read_print ${PROJECT_NAME})

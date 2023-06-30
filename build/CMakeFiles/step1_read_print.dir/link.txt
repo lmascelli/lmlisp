@@ -1,0 +1,1 @@
+/usr/bin/c++ -g CMakeFiles/step1_read_print.dir/step1_read_print.cpp.o -o step1_read_print  liblmlisp.a 

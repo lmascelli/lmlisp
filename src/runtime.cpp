@@ -1,14 +1,16 @@
 #include "runtime.hpp"
+#include "reader.hpp"
+#include "printer.hpp"
 
 namespace lmlisp {
-  std::string READ(std::string input) {
+  ElementP READ(std::string input) {
+    return read_str(input);
+  }
+  ElementP EVAL(ElementP input) {
     return input;
   }
-  std::string EVAL(std::string input) {
-    return input;
-  }
-  std::string PRINT(std::string input) {
-    return input;
+  std::string PRINT(ElementP input) {
+    return pr_str(input, true);
   }
 
   std::string rep(std::string input) {

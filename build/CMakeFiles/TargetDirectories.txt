@@ -1,4 +1,5 @@
 /home/leonardo/data/projects/lmlisp/build/CMakeFiles/lmlisp.dir
 /home/leonardo/data/projects/lmlisp/build/CMakeFiles/step0_repl.dir
+/home/leonardo/data/projects/lmlisp/build/CMakeFiles/step1_read_print.dir
 /home/leonardo/data/projects/lmlisp/build/CMakeFiles/edit_cache.dir
 /home/leonardo/data/projects/lmlisp/build/CMakeFiles/rebuild_cache.dir

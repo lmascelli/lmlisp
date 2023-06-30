@@ -142,6 +142,67 @@ step0_repl/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/step0_repl.dir/build.make CMakeFiles/step0_repl.dir/build
 .PHONY : step0_repl/fast
 
+#=============================================================================
+# Target rules for targets named step1_read_print
+
+# Build rule for target.
+step1_read_print: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 step1_read_print
+.PHONY : step1_read_print
+
+# fast build rule for target.
+step1_read_print/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/step1_read_print.dir/build.make CMakeFiles/step1_read_print.dir/build
+.PHONY : step1_read_print/fast
+
+src/printer.o: src/printer.cpp.o
+.PHONY : src/printer.o
+
+# target to build an object file
+src/printer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lmlisp.dir/build.make CMakeFiles/lmlisp.dir/src/printer.cpp.o
+.PHONY : src/printer.cpp.o
+
+src/printer.i: src/printer.cpp.i
+.PHONY : src/printer.i
+
+# target to preprocess a source file
+src/printer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lmlisp.dir/build.make CMakeFiles/lmlisp.dir/src/printer.cpp.i
+.PHONY : src/printer.cpp.i
+
+src/printer.s: src/printer.cpp.s
+.PHONY : src/printer.s
+
+# target to generate assembly for a file
+src/printer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lmlisp.dir/build.make CMakeFiles/lmlisp.dir/src/printer.cpp.s
+.PHONY : src/printer.cpp.s
+
+src/reader.o: src/reader.cpp.o
+.PHONY : src/reader.o
+
+# target to build an object file
+src/reader.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lmlisp.dir/build.make CMakeFiles/lmlisp.dir/src/reader.cpp.o
+.PHONY : src/reader.cpp.o
+
+src/reader.i: src/reader.cpp.i
+.PHONY : src/reader.i
+
+# target to preprocess a source file
+src/reader.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lmlisp.dir/build.make CMakeFiles/lmlisp.dir/src/reader.cpp.i
+.PHONY : src/reader.cpp.i
+
+src/reader.s: src/reader.cpp.s
+.PHONY : src/reader.s
+
+# target to generate assembly for a file
+src/reader.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lmlisp.dir/build.make CMakeFiles/lmlisp.dir/src/reader.cpp.s
+.PHONY : src/reader.cpp.s
+
 src/runtime.o: src/runtime.cpp.o
 .PHONY : src/runtime.o
 
@@ -165,6 +226,30 @@ src/runtime.s: src/runtime.cpp.s
 src/runtime.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/lmlisp.dir/build.make CMakeFiles/lmlisp.dir/src/runtime.cpp.s
 .PHONY : src/runtime.cpp.s
+
+src/types.o: src/types.cpp.o
+.PHONY : src/types.o
+
+# target to build an object file
+src/types.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lmlisp.dir/build.make CMakeFiles/lmlisp.dir/src/types.cpp.o
+.PHONY : src/types.cpp.o
+
+src/types.i: src/types.cpp.i
+.PHONY : src/types.i
+
+# target to preprocess a source file
+src/types.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lmlisp.dir/build.make CMakeFiles/lmlisp.dir/src/types.cpp.i
+.PHONY : src/types.cpp.i
+
+src/types.s: src/types.cpp.s
+.PHONY : src/types.s
+
+# target to generate assembly for a file
+src/types.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lmlisp.dir/build.make CMakeFiles/lmlisp.dir/src/types.cpp.s
+.PHONY : src/types.cpp.s
 
 step0_repl.o: step0_repl.cpp.o
 .PHONY : step0_repl.o
@@ -190,6 +275,30 @@ step0_repl.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/step0_repl.dir/build.make CMakeFiles/step0_repl.dir/step0_repl.cpp.s
 .PHONY : step0_repl.cpp.s
 
+step1_read_print.o: step1_read_print.cpp.o
+.PHONY : step1_read_print.o
+
+# target to build an object file
+step1_read_print.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/step1_read_print.dir/build.make CMakeFiles/step1_read_print.dir/step1_read_print.cpp.o
+.PHONY : step1_read_print.cpp.o
+
+step1_read_print.i: step1_read_print.cpp.i
+.PHONY : step1_read_print.i
+
+# target to preprocess a source file
+step1_read_print.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/step1_read_print.dir/build.make CMakeFiles/step1_read_print.dir/step1_read_print.cpp.i
+.PHONY : step1_read_print.cpp.i
+
+step1_read_print.s: step1_read_print.cpp.s
+.PHONY : step1_read_print.s
+
+# target to generate assembly for a file
+step1_read_print.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/step1_read_print.dir/build.make CMakeFiles/step1_read_print.dir/step1_read_print.cpp.s
+.PHONY : step1_read_print.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -200,12 +309,25 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... lmlisp"
 	@echo "... step0_repl"
+	@echo "... step1_read_print"
+	@echo "... src/printer.o"
+	@echo "... src/printer.i"
+	@echo "... src/printer.s"
+	@echo "... src/reader.o"
+	@echo "... src/reader.i"
+	@echo "... src/reader.s"
 	@echo "... src/runtime.o"
 	@echo "... src/runtime.i"
 	@echo "... src/runtime.s"
+	@echo "... src/types.o"
+	@echo "... src/types.i"
+	@echo "... src/types.s"
 	@echo "... step0_repl.o"
 	@echo "... step0_repl.i"
 	@echo "... step0_repl.s"
+	@echo "... step1_read_print.o"
+	@echo "... step1_read_print.i"
+	@echo "... step1_read_print.s"
 .PHONY : help
 
 
