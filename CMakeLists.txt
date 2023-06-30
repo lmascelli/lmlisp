@@ -13,7 +13,9 @@ set(SOURCES
   types.cpp
   reader.cpp
   printer.cpp
+  core.cpp
   runtime.cpp
+  lmlisp.cpp
   )
 
 list(TRANSFORM SOURCES PREPEND "src/")
@@ -29,3 +31,7 @@ target_link_libraries(step0_repl ${PROJECT_NAME})
 add_executable(step1_read_print
   "step1_read_print.cpp")
 target_link_libraries(step1_read_print ${PROJECT_NAME})
+
+add_executable(step2_eval
+  "step2_eval.cpp")
+target_link_libraries(step2_eval ${PROJECT_NAME})

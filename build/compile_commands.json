@@ -19,9 +19,21 @@
 },
 {
   "directory": "/home/leonardo/data/projects/lmlisp/build",
+  "command": "/usr/bin/c++   -g -std=gnu++20 -Wall -Wextra -Wpedantic -Werror -o CMakeFiles/lmlisp.dir/src/core.cpp.o -c /home/leonardo/data/projects/lmlisp/src/core.cpp",
+  "file": "/home/leonardo/data/projects/lmlisp/src/core.cpp",
+  "output": "CMakeFiles/lmlisp.dir/src/core.cpp.o"
+},
+{
+  "directory": "/home/leonardo/data/projects/lmlisp/build",
   "command": "/usr/bin/c++   -g -std=gnu++20 -Wall -Wextra -Wpedantic -Werror -o CMakeFiles/lmlisp.dir/src/runtime.cpp.o -c /home/leonardo/data/projects/lmlisp/src/runtime.cpp",
   "file": "/home/leonardo/data/projects/lmlisp/src/runtime.cpp",
   "output": "CMakeFiles/lmlisp.dir/src/runtime.cpp.o"
+},
+{
+  "directory": "/home/leonardo/data/projects/lmlisp/build",
+  "command": "/usr/bin/c++   -g -std=gnu++20 -Wall -Wextra -Wpedantic -Werror -o CMakeFiles/lmlisp.dir/src/lmlisp.cpp.o -c /home/leonardo/data/projects/lmlisp/src/lmlisp.cpp",
+  "file": "/home/leonardo/data/projects/lmlisp/src/lmlisp.cpp",
+  "output": "CMakeFiles/lmlisp.dir/src/lmlisp.cpp.o"
 },
 {
   "directory": "/home/leonardo/data/projects/lmlisp/build",
@@ -34,5 +46,11 @@
   "command": "/usr/bin/c++   -g -std=gnu++20 -o CMakeFiles/step1_read_print.dir/step1_read_print.cpp.o -c /home/leonardo/data/projects/lmlisp/step1_read_print.cpp",
   "file": "/home/leonardo/data/projects/lmlisp/step1_read_print.cpp",
   "output": "CMakeFiles/step1_read_print.dir/step1_read_print.cpp.o"
+},
+{
+  "directory": "/home/leonardo/data/projects/lmlisp/build",
+  "command": "/usr/bin/c++   -g -std=gnu++20 -o CMakeFiles/step2_eval.dir/step2_eval.cpp.o -c /home/leonardo/data/projects/lmlisp/step2_eval.cpp",
+  "file": "/home/leonardo/data/projects/lmlisp/step2_eval.cpp",
+  "output": "CMakeFiles/step2_eval.dir/step2_eval.cpp.o"
 }
 ]

@@ -1,6 +1,7 @@
 CMakeFiles/step1_read_print.dir/step1_read_print.cpp.o: \
  /home/leonardo/data/projects/lmlisp/step1_read_print.cpp \
  /usr/include/stdc-predef.h \
+ /home/leonardo/data/projects/lmlisp/src/lmlisp.hpp \
  /home/leonardo/data/projects/lmlisp/src/runtime.hpp \
  /home/leonardo/data/projects/lmlisp/src/externals.hpp \
  /usr/include/c++/13.1.1/string \

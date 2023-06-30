@@ -1,2 +1,2 @@
-/usr/bin/ar qc liblmlisp.a CMakeFiles/lmlisp.dir/src/types.cpp.o CMakeFiles/lmlisp.dir/src/reader.cpp.o CMakeFiles/lmlisp.dir/src/printer.cpp.o CMakeFiles/lmlisp.dir/src/runtime.cpp.o
+/usr/bin/ar qc liblmlisp.a CMakeFiles/lmlisp.dir/src/types.cpp.o CMakeFiles/lmlisp.dir/src/reader.cpp.o CMakeFiles/lmlisp.dir/src/printer.cpp.o CMakeFiles/lmlisp.dir/src/core.cpp.o CMakeFiles/lmlisp.dir/src/runtime.cpp.o CMakeFiles/lmlisp.dir/src/lmlisp.cpp.o
 /usr/bin/ranlib liblmlisp.a

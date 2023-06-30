@@ -1,4 +1,4 @@
-#include "src/runtime.hpp"
+#include "src/lmlisp.hpp"
 #include <iostream>
 
 std::string lmlisp::readln(std::string prompt) {
@@ -14,9 +14,5 @@ void lmlisp::writeln(std::string line) {
 
 int main([[maybe_unused]]int argc, [[maybe_unused]]char** argv) {
   std::string input;
-  do {
-    std::cout << "user> ";
-    std::getline(std::cin, input);
-    lmlisp::rep(input);
-  } while(!std::cin.eof());
+  lmlisp::init().repl();
 }

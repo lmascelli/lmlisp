@@ -1,4 +1,8 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/lmlisp.dir/src/core.cpp.o"
+  "CMakeFiles/lmlisp.dir/src/core.cpp.o.d"
+  "CMakeFiles/lmlisp.dir/src/lmlisp.cpp.o"
+  "CMakeFiles/lmlisp.dir/src/lmlisp.cpp.o.d"
   "CMakeFiles/lmlisp.dir/src/printer.cpp.o"
   "CMakeFiles/lmlisp.dir/src/printer.cpp.o.d"
   "CMakeFiles/lmlisp.dir/src/reader.cpp.o"

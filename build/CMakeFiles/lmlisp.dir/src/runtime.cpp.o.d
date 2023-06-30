@@ -197,7 +197,11 @@ CMakeFiles/lmlisp.dir/src/runtime.cpp.o: \
  /usr/include/c++/13.1.1/bits/ranges_algobase.h \
  /usr/include/c++/13.1.1/pstl/glue_memory_defs.h \
  /usr/include/c++/13.1.1/pstl/execution_defs.h \
+ /home/leonardo/data/projects/lmlisp/src/core.hpp \
+ /home/leonardo/data/projects/lmlisp/src/macros.hpp \
+ /home/leonardo/data/projects/lmlisp/src/printer.hpp \
  /home/leonardo/data/projects/lmlisp/src/reader.hpp \
  /usr/include/c++/13.1.1/optional /usr/include/c++/13.1.1/variant \
  /usr/include/c++/13.1.1/bits/parse_numbers.h \
- /home/leonardo/data/projects/lmlisp/src/printer.hpp
+ /home/leonardo/data/projects/lmlisp/src/utils.hpp \
+ /usr/include/c++/13.1.1/stdlib.h

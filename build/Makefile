@@ -155,6 +155,67 @@ step1_read_print/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/step1_read_print.dir/build.make CMakeFiles/step1_read_print.dir/build
 .PHONY : step1_read_print/fast
 
+#=============================================================================
+# Target rules for targets named step2_eval
+
+# Build rule for target.
+step2_eval: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 step2_eval
+.PHONY : step2_eval
+
+# fast build rule for target.
+step2_eval/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/step2_eval.dir/build.make CMakeFiles/step2_eval.dir/build
+.PHONY : step2_eval/fast
+
+src/core.o: src/core.cpp.o
+.PHONY : src/core.o
+
+# target to build an object file
+src/core.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lmlisp.dir/build.make CMakeFiles/lmlisp.dir/src/core.cpp.o
+.PHONY : src/core.cpp.o
+
+src/core.i: src/core.cpp.i
+.PHONY : src/core.i
+
+# target to preprocess a source file
+src/core.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lmlisp.dir/build.make CMakeFiles/lmlisp.dir/src/core.cpp.i
+.PHONY : src/core.cpp.i
+
+src/core.s: src/core.cpp.s
+.PHONY : src/core.s
+
+# target to generate assembly for a file
+src/core.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lmlisp.dir/build.make CMakeFiles/lmlisp.dir/src/core.cpp.s
+.PHONY : src/core.cpp.s
+
+src/lmlisp.o: src/lmlisp.cpp.o
+.PHONY : src/lmlisp.o
+
+# target to build an object file
+src/lmlisp.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lmlisp.dir/build.make CMakeFiles/lmlisp.dir/src/lmlisp.cpp.o
+.PHONY : src/lmlisp.cpp.o
+
+src/lmlisp.i: src/lmlisp.cpp.i
+.PHONY : src/lmlisp.i
+
+# target to preprocess a source file
+src/lmlisp.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lmlisp.dir/build.make CMakeFiles/lmlisp.dir/src/lmlisp.cpp.i
+.PHONY : src/lmlisp.cpp.i
+
+src/lmlisp.s: src/lmlisp.cpp.s
+.PHONY : src/lmlisp.s
+
+# target to generate assembly for a file
+src/lmlisp.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lmlisp.dir/build.make CMakeFiles/lmlisp.dir/src/lmlisp.cpp.s
+.PHONY : src/lmlisp.cpp.s
+
 src/printer.o: src/printer.cpp.o
 .PHONY : src/printer.o
 
@@ -299,6 +360,30 @@ step1_read_print.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/step1_read_print.dir/build.make CMakeFiles/step1_read_print.dir/step1_read_print.cpp.s
 .PHONY : step1_read_print.cpp.s
 
+step2_eval.o: step2_eval.cpp.o
+.PHONY : step2_eval.o
+
+# target to build an object file
+step2_eval.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/step2_eval.dir/build.make CMakeFiles/step2_eval.dir/step2_eval.cpp.o
+.PHONY : step2_eval.cpp.o
+
+step2_eval.i: step2_eval.cpp.i
+.PHONY : step2_eval.i
+
+# target to preprocess a source file
+step2_eval.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/step2_eval.dir/build.make CMakeFiles/step2_eval.dir/step2_eval.cpp.i
+.PHONY : step2_eval.cpp.i
+
+step2_eval.s: step2_eval.cpp.s
+.PHONY : step2_eval.s
+
+# target to generate assembly for a file
+step2_eval.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/step2_eval.dir/build.make CMakeFiles/step2_eval.dir/step2_eval.cpp.s
+.PHONY : step2_eval.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -310,6 +395,13 @@ help:
 	@echo "... lmlisp"
 	@echo "... step0_repl"
 	@echo "... step1_read_print"
+	@echo "... step2_eval"
+	@echo "... src/core.o"
+	@echo "... src/core.i"
+	@echo "... src/core.s"
+	@echo "... src/lmlisp.o"
+	@echo "... src/lmlisp.i"
+	@echo "... src/lmlisp.s"
 	@echo "... src/printer.o"
 	@echo "... src/printer.i"
 	@echo "... src/printer.s"
@@ -328,6 +420,9 @@ help:
 	@echo "... step1_read_print.o"
 	@echo "... step1_read_print.i"
 	@echo "... step1_read_print.s"
+	@echo "... step2_eval.o"
+	@echo "... step2_eval.i"
+	@echo "... step2_eval.s"
 .PHONY : help
 
 

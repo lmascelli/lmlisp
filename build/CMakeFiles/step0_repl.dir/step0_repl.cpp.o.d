@@ -1,6 +1,7 @@
 CMakeFiles/step0_repl.dir/step0_repl.cpp.o: \
  /home/leonardo/data/projects/lmlisp/step0_repl.cpp \
  /usr/include/stdc-predef.h \
+ /home/leonardo/data/projects/lmlisp/src/lmlisp.hpp \
  /home/leonardo/data/projects/lmlisp/src/runtime.hpp \
  /home/leonardo/data/projects/lmlisp/src/externals.hpp \
  /usr/include/c++/13.1.1/string \

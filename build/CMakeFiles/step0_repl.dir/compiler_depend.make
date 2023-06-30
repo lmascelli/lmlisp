@@ -3,6 +3,7 @@
 
 CMakeFiles/step0_repl.dir/step0_repl.cpp.o: /home/leonardo/data/projects/lmlisp/step0_repl.cpp \
   /usr/include/stdc-predef.h \
+  /home/leonardo/data/projects/lmlisp/src/lmlisp.hpp \
   /home/leonardo/data/projects/lmlisp/src/runtime.hpp \
   /home/leonardo/data/projects/lmlisp/src/externals.hpp \
   /usr/include/c++/13.1.1/string \
@@ -273,6 +274,8 @@ CMakeFiles/step0_repl.dir/step0_repl.cpp.o: /home/leonardo/data/projects/lmlisp/
 
 /usr/include/c++/13.1.1/pstl/glue_memory_defs.h:
 
+/usr/include/c++/13.1.1/bits/ranges_algobase.h:
+
 /usr/include/alloca.h:
 
 /usr/include/bits/struct_mutex.h:
@@ -282,8 +285,6 @@ CMakeFiles/step0_repl.dir/step0_repl.cpp.o: /home/leonardo/data/projects/lmlisp/
 /usr/include/bits/types/struct_timeval.h:
 
 /usr/include/bits/select.h:
-
-/usr/include/bits/types/timer_t.h:
 
 /usr/include/bits/atomic_wide_counter.h:
 
@@ -377,15 +378,7 @@ CMakeFiles/step0_repl.dir/step0_repl.cpp.o: /home/leonardo/data/projects/lmlisp/
 
 /usr/include/c++/13.1.1/clocale:
 
-/usr/include/c++/13.1.1/bits/std_abs.h:
-
-/usr/include/linux/close_range.h:
-
-/usr/lib/gcc/x86_64-pc-linux-gnu/13.1.1/include/stdarg.h:
-
-/usr/include/c++/13.1.1/bits/string_view.tcc:
-
-/usr/include/bits/libc-header-start.h:
+/usr/include/c++/13.1.1/bits/atomic_lockfree_defines.h:
 
 /usr/include/bits/floatn.h:
 
@@ -396,6 +389,16 @@ CMakeFiles/step0_repl.dir/step0_repl.cpp.o: /home/leonardo/data/projects/lmlisp/
 /usr/include/c++/13.1.1/cstdlib:
 
 /usr/include/stdlib.h:
+
+/usr/include/c++/13.1.1/bits/string_view.tcc:
+
+/usr/include/bits/libc-header-start.h:
+
+/usr/include/c++/13.1.1/bits/std_abs.h:
+
+/usr/include/linux/close_range.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/13.1.1/include/stdarg.h:
 
 /usr/include/c++/13.1.1/bits/stl_function.h:
 
@@ -423,6 +426,10 @@ CMakeFiles/step0_repl.dir/step0_repl.cpp.o: /home/leonardo/data/projects/lmlisp/
 
 /home/leonardo/data/projects/lmlisp/src/externals.hpp:
 
+/usr/include/bits/types/timer_t.h:
+
+/home/leonardo/data/projects/lmlisp/src/lmlisp.hpp:
+
 /usr/include/c++/13.1.1/debug/assertions.h:
 
 /usr/include/c++/13.1.1/x86_64-pc-linux-gnu/bits/ctype_base.h:
@@ -446,8 +453,6 @@ CMakeFiles/step0_repl.dir/step0_repl.cpp.o: /home/leonardo/data/projects/lmlisp/
 /usr/include/c++/13.1.1/bits/exception_ptr.h:
 
 /usr/include/c++/13.1.1/bits/nested_exception.h:
-
-/usr/include/c++/13.1.1/bits/atomic_lockfree_defines.h:
 
 /usr/lib/gcc/x86_64-pc-linux-gnu/13.1.1/include/stddef.h:
 
@@ -576,8 +581,6 @@ CMakeFiles/step0_repl.dir/step0_repl.cpp.o: /home/leonardo/data/projects/lmlisp/
 /usr/include/c++/13.1.1/bits/move.h:
 
 /usr/include/bits/types/__fpos64_t.h:
-
-/usr/include/c++/13.1.1/bits/ranges_algobase.h:
 
 /usr/include/bits/types/cookie_io_functions_t.h:
 

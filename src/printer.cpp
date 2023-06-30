@@ -62,7 +62,7 @@ std::string pr_str(ElementP el, bool print_readably) {
       DictP d = el->to<Dict>();
       ListP keys = d->keys()->to<List>();
       for (unsigned int i = 0; i < keys->size(); ++i) {
-	ret += pr_str(keys->at(i), print_readably) + " " +
+	ret += pr_str(keys->at(i), true) + " " +
 	  pr_str(d->get(keys->at(i)), print_readably);
 	if (i < (keys->size() - 1))
 	  ret += " ";
