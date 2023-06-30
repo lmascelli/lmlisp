@@ -68,6 +68,12 @@ all: CMakeFiles/step0_repl.dir/all
 all: CMakeFiles/step1_read_print.dir/all
 all: CMakeFiles/step2_eval.dir/all
 all: CMakeFiles/step3_env.dir/all
+all: CMakeFiles/step4_if_fn_do.dir/all
+all: CMakeFiles/step5_tco.dir/all
+all: CMakeFiles/step6_file.dir/all
+all: CMakeFiles/step7_quote.dir/all
+all: CMakeFiles/step8_macros.dir/all
+all: CMakeFiles/step9_try.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -80,6 +86,12 @@ clean: CMakeFiles/step0_repl.dir/clean
 clean: CMakeFiles/step1_read_print.dir/clean
 clean: CMakeFiles/step2_eval.dir/clean
 clean: CMakeFiles/step3_env.dir/clean
+clean: CMakeFiles/step4_if_fn_do.dir/clean
+clean: CMakeFiles/step5_tco.dir/clean
+clean: CMakeFiles/step6_file.dir/clean
+clean: CMakeFiles/step7_quote.dir/clean
+clean: CMakeFiles/step8_macros.dir/clean
+clean: CMakeFiles/step9_try.dir/clean
 .PHONY : clean
 
 #=============================================================================
@@ -211,6 +223,162 @@ step3_env: CMakeFiles/step3_env.dir/rule
 CMakeFiles/step3_env.dir/clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/step3_env.dir/build.make CMakeFiles/step3_env.dir/clean
 .PHONY : CMakeFiles/step3_env.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/step4_if_fn_do.dir
+
+# All Build rule for target.
+CMakeFiles/step4_if_fn_do.dir/all: CMakeFiles/lmlisp.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/step4_if_fn_do.dir/build.make CMakeFiles/step4_if_fn_do.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/step4_if_fn_do.dir/build.make CMakeFiles/step4_if_fn_do.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/leonardo/data/projects/lmlisp/build/CMakeFiles --progress-num=16,17 "Built target step4_if_fn_do"
+.PHONY : CMakeFiles/step4_if_fn_do.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/step4_if_fn_do.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/leonardo/data/projects/lmlisp/build/CMakeFiles 9
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/step4_if_fn_do.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/leonardo/data/projects/lmlisp/build/CMakeFiles 0
+.PHONY : CMakeFiles/step4_if_fn_do.dir/rule
+
+# Convenience name for target.
+step4_if_fn_do: CMakeFiles/step4_if_fn_do.dir/rule
+.PHONY : step4_if_fn_do
+
+# clean rule for target.
+CMakeFiles/step4_if_fn_do.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/step4_if_fn_do.dir/build.make CMakeFiles/step4_if_fn_do.dir/clean
+.PHONY : CMakeFiles/step4_if_fn_do.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/step5_tco.dir
+
+# All Build rule for target.
+CMakeFiles/step5_tco.dir/all: CMakeFiles/lmlisp.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/step5_tco.dir/build.make CMakeFiles/step5_tco.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/step5_tco.dir/build.make CMakeFiles/step5_tco.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/leonardo/data/projects/lmlisp/build/CMakeFiles --progress-num=18,19 "Built target step5_tco"
+.PHONY : CMakeFiles/step5_tco.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/step5_tco.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/leonardo/data/projects/lmlisp/build/CMakeFiles 9
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/step5_tco.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/leonardo/data/projects/lmlisp/build/CMakeFiles 0
+.PHONY : CMakeFiles/step5_tco.dir/rule
+
+# Convenience name for target.
+step5_tco: CMakeFiles/step5_tco.dir/rule
+.PHONY : step5_tco
+
+# clean rule for target.
+CMakeFiles/step5_tco.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/step5_tco.dir/build.make CMakeFiles/step5_tco.dir/clean
+.PHONY : CMakeFiles/step5_tco.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/step6_file.dir
+
+# All Build rule for target.
+CMakeFiles/step6_file.dir/all: CMakeFiles/lmlisp.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/step6_file.dir/build.make CMakeFiles/step6_file.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/step6_file.dir/build.make CMakeFiles/step6_file.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/leonardo/data/projects/lmlisp/build/CMakeFiles --progress-num=20,21 "Built target step6_file"
+.PHONY : CMakeFiles/step6_file.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/step6_file.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/leonardo/data/projects/lmlisp/build/CMakeFiles 9
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/step6_file.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/leonardo/data/projects/lmlisp/build/CMakeFiles 0
+.PHONY : CMakeFiles/step6_file.dir/rule
+
+# Convenience name for target.
+step6_file: CMakeFiles/step6_file.dir/rule
+.PHONY : step6_file
+
+# clean rule for target.
+CMakeFiles/step6_file.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/step6_file.dir/build.make CMakeFiles/step6_file.dir/clean
+.PHONY : CMakeFiles/step6_file.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/step7_quote.dir
+
+# All Build rule for target.
+CMakeFiles/step7_quote.dir/all: CMakeFiles/lmlisp.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/step7_quote.dir/build.make CMakeFiles/step7_quote.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/step7_quote.dir/build.make CMakeFiles/step7_quote.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/leonardo/data/projects/lmlisp/build/CMakeFiles --progress-num=22,23 "Built target step7_quote"
+.PHONY : CMakeFiles/step7_quote.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/step7_quote.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/leonardo/data/projects/lmlisp/build/CMakeFiles 9
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/step7_quote.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/leonardo/data/projects/lmlisp/build/CMakeFiles 0
+.PHONY : CMakeFiles/step7_quote.dir/rule
+
+# Convenience name for target.
+step7_quote: CMakeFiles/step7_quote.dir/rule
+.PHONY : step7_quote
+
+# clean rule for target.
+CMakeFiles/step7_quote.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/step7_quote.dir/build.make CMakeFiles/step7_quote.dir/clean
+.PHONY : CMakeFiles/step7_quote.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/step8_macros.dir
+
+# All Build rule for target.
+CMakeFiles/step8_macros.dir/all: CMakeFiles/lmlisp.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/step8_macros.dir/build.make CMakeFiles/step8_macros.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/step8_macros.dir/build.make CMakeFiles/step8_macros.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/leonardo/data/projects/lmlisp/build/CMakeFiles --progress-num=24,25 "Built target step8_macros"
+.PHONY : CMakeFiles/step8_macros.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/step8_macros.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/leonardo/data/projects/lmlisp/build/CMakeFiles 9
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/step8_macros.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/leonardo/data/projects/lmlisp/build/CMakeFiles 0
+.PHONY : CMakeFiles/step8_macros.dir/rule
+
+# Convenience name for target.
+step8_macros: CMakeFiles/step8_macros.dir/rule
+.PHONY : step8_macros
+
+# clean rule for target.
+CMakeFiles/step8_macros.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/step8_macros.dir/build.make CMakeFiles/step8_macros.dir/clean
+.PHONY : CMakeFiles/step8_macros.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/step9_try.dir
+
+# All Build rule for target.
+CMakeFiles/step9_try.dir/all: CMakeFiles/lmlisp.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/step9_try.dir/build.make CMakeFiles/step9_try.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/step9_try.dir/build.make CMakeFiles/step9_try.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/leonardo/data/projects/lmlisp/build/CMakeFiles --progress-num=26,27 "Built target step9_try"
+.PHONY : CMakeFiles/step9_try.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/step9_try.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/leonardo/data/projects/lmlisp/build/CMakeFiles 9
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/step9_try.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/leonardo/data/projects/lmlisp/build/CMakeFiles 0
+.PHONY : CMakeFiles/step9_try.dir/rule
+
+# Convenience name for target.
+step9_try: CMakeFiles/step9_try.dir/rule
+.PHONY : step9_try
+
+# clean rule for target.
+CMakeFiles/step9_try.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/step9_try.dir/build.make CMakeFiles/step9_try.dir/clean
+.PHONY : CMakeFiles/step9_try.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

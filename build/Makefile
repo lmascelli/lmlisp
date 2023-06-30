@@ -181,6 +181,84 @@ step3_env/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/step3_env.dir/build.make CMakeFiles/step3_env.dir/build
 .PHONY : step3_env/fast
 
+#=============================================================================
+# Target rules for targets named step4_if_fn_do
+
+# Build rule for target.
+step4_if_fn_do: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 step4_if_fn_do
+.PHONY : step4_if_fn_do
+
+# fast build rule for target.
+step4_if_fn_do/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/step4_if_fn_do.dir/build.make CMakeFiles/step4_if_fn_do.dir/build
+.PHONY : step4_if_fn_do/fast
+
+#=============================================================================
+# Target rules for targets named step5_tco
+
+# Build rule for target.
+step5_tco: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 step5_tco
+.PHONY : step5_tco
+
+# fast build rule for target.
+step5_tco/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/step5_tco.dir/build.make CMakeFiles/step5_tco.dir/build
+.PHONY : step5_tco/fast
+
+#=============================================================================
+# Target rules for targets named step6_file
+
+# Build rule for target.
+step6_file: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 step6_file
+.PHONY : step6_file
+
+# fast build rule for target.
+step6_file/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/step6_file.dir/build.make CMakeFiles/step6_file.dir/build
+.PHONY : step6_file/fast
+
+#=============================================================================
+# Target rules for targets named step7_quote
+
+# Build rule for target.
+step7_quote: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 step7_quote
+.PHONY : step7_quote
+
+# fast build rule for target.
+step7_quote/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/step7_quote.dir/build.make CMakeFiles/step7_quote.dir/build
+.PHONY : step7_quote/fast
+
+#=============================================================================
+# Target rules for targets named step8_macros
+
+# Build rule for target.
+step8_macros: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 step8_macros
+.PHONY : step8_macros
+
+# fast build rule for target.
+step8_macros/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/step8_macros.dir/build.make CMakeFiles/step8_macros.dir/build
+.PHONY : step8_macros/fast
+
+#=============================================================================
+# Target rules for targets named step9_try
+
+# Build rule for target.
+step9_try: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 step9_try
+.PHONY : step9_try
+
+# fast build rule for target.
+step9_try/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/step9_try.dir/build.make CMakeFiles/step9_try.dir/build
+.PHONY : step9_try/fast
+
 src/core.o: src/core.cpp.o
 .PHONY : src/core.o
 
@@ -421,6 +499,150 @@ step3_env.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/step3_env.dir/build.make CMakeFiles/step3_env.dir/step3_env.cpp.s
 .PHONY : step3_env.cpp.s
 
+step4_if_fn_do.o: step4_if_fn_do.cpp.o
+.PHONY : step4_if_fn_do.o
+
+# target to build an object file
+step4_if_fn_do.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/step4_if_fn_do.dir/build.make CMakeFiles/step4_if_fn_do.dir/step4_if_fn_do.cpp.o
+.PHONY : step4_if_fn_do.cpp.o
+
+step4_if_fn_do.i: step4_if_fn_do.cpp.i
+.PHONY : step4_if_fn_do.i
+
+# target to preprocess a source file
+step4_if_fn_do.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/step4_if_fn_do.dir/build.make CMakeFiles/step4_if_fn_do.dir/step4_if_fn_do.cpp.i
+.PHONY : step4_if_fn_do.cpp.i
+
+step4_if_fn_do.s: step4_if_fn_do.cpp.s
+.PHONY : step4_if_fn_do.s
+
+# target to generate assembly for a file
+step4_if_fn_do.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/step4_if_fn_do.dir/build.make CMakeFiles/step4_if_fn_do.dir/step4_if_fn_do.cpp.s
+.PHONY : step4_if_fn_do.cpp.s
+
+step5_tco.o: step5_tco.cpp.o
+.PHONY : step5_tco.o
+
+# target to build an object file
+step5_tco.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/step5_tco.dir/build.make CMakeFiles/step5_tco.dir/step5_tco.cpp.o
+.PHONY : step5_tco.cpp.o
+
+step5_tco.i: step5_tco.cpp.i
+.PHONY : step5_tco.i
+
+# target to preprocess a source file
+step5_tco.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/step5_tco.dir/build.make CMakeFiles/step5_tco.dir/step5_tco.cpp.i
+.PHONY : step5_tco.cpp.i
+
+step5_tco.s: step5_tco.cpp.s
+.PHONY : step5_tco.s
+
+# target to generate assembly for a file
+step5_tco.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/step5_tco.dir/build.make CMakeFiles/step5_tco.dir/step5_tco.cpp.s
+.PHONY : step5_tco.cpp.s
+
+step6_file.o: step6_file.cpp.o
+.PHONY : step6_file.o
+
+# target to build an object file
+step6_file.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/step6_file.dir/build.make CMakeFiles/step6_file.dir/step6_file.cpp.o
+.PHONY : step6_file.cpp.o
+
+step6_file.i: step6_file.cpp.i
+.PHONY : step6_file.i
+
+# target to preprocess a source file
+step6_file.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/step6_file.dir/build.make CMakeFiles/step6_file.dir/step6_file.cpp.i
+.PHONY : step6_file.cpp.i
+
+step6_file.s: step6_file.cpp.s
+.PHONY : step6_file.s
+
+# target to generate assembly for a file
+step6_file.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/step6_file.dir/build.make CMakeFiles/step6_file.dir/step6_file.cpp.s
+.PHONY : step6_file.cpp.s
+
+step7_quote.o: step7_quote.cpp.o
+.PHONY : step7_quote.o
+
+# target to build an object file
+step7_quote.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/step7_quote.dir/build.make CMakeFiles/step7_quote.dir/step7_quote.cpp.o
+.PHONY : step7_quote.cpp.o
+
+step7_quote.i: step7_quote.cpp.i
+.PHONY : step7_quote.i
+
+# target to preprocess a source file
+step7_quote.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/step7_quote.dir/build.make CMakeFiles/step7_quote.dir/step7_quote.cpp.i
+.PHONY : step7_quote.cpp.i
+
+step7_quote.s: step7_quote.cpp.s
+.PHONY : step7_quote.s
+
+# target to generate assembly for a file
+step7_quote.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/step7_quote.dir/build.make CMakeFiles/step7_quote.dir/step7_quote.cpp.s
+.PHONY : step7_quote.cpp.s
+
+step8_macros.o: step8_macros.cpp.o
+.PHONY : step8_macros.o
+
+# target to build an object file
+step8_macros.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/step8_macros.dir/build.make CMakeFiles/step8_macros.dir/step8_macros.cpp.o
+.PHONY : step8_macros.cpp.o
+
+step8_macros.i: step8_macros.cpp.i
+.PHONY : step8_macros.i
+
+# target to preprocess a source file
+step8_macros.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/step8_macros.dir/build.make CMakeFiles/step8_macros.dir/step8_macros.cpp.i
+.PHONY : step8_macros.cpp.i
+
+step8_macros.s: step8_macros.cpp.s
+.PHONY : step8_macros.s
+
+# target to generate assembly for a file
+step8_macros.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/step8_macros.dir/build.make CMakeFiles/step8_macros.dir/step8_macros.cpp.s
+.PHONY : step8_macros.cpp.s
+
+step9_try.o: step9_try.cpp.o
+.PHONY : step9_try.o
+
+# target to build an object file
+step9_try.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/step9_try.dir/build.make CMakeFiles/step9_try.dir/step9_try.cpp.o
+.PHONY : step9_try.cpp.o
+
+step9_try.i: step9_try.cpp.i
+.PHONY : step9_try.i
+
+# target to preprocess a source file
+step9_try.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/step9_try.dir/build.make CMakeFiles/step9_try.dir/step9_try.cpp.i
+.PHONY : step9_try.cpp.i
+
+step9_try.s: step9_try.cpp.s
+.PHONY : step9_try.s
+
+# target to generate assembly for a file
+step9_try.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/step9_try.dir/build.make CMakeFiles/step9_try.dir/step9_try.cpp.s
+.PHONY : step9_try.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -434,6 +656,12 @@ help:
 	@echo "... step1_read_print"
 	@echo "... step2_eval"
 	@echo "... step3_env"
+	@echo "... step4_if_fn_do"
+	@echo "... step5_tco"
+	@echo "... step6_file"
+	@echo "... step7_quote"
+	@echo "... step8_macros"
+	@echo "... step9_try"
 	@echo "... src/core.o"
 	@echo "... src/core.i"
 	@echo "... src/core.s"
@@ -464,6 +692,24 @@ help:
 	@echo "... step3_env.o"
 	@echo "... step3_env.i"
 	@echo "... step3_env.s"
+	@echo "... step4_if_fn_do.o"
+	@echo "... step4_if_fn_do.i"
+	@echo "... step4_if_fn_do.s"
+	@echo "... step5_tco.o"
+	@echo "... step5_tco.i"
+	@echo "... step5_tco.s"
+	@echo "... step6_file.o"
+	@echo "... step6_file.i"
+	@echo "... step6_file.s"
+	@echo "... step7_quote.o"
+	@echo "... step7_quote.i"
+	@echo "... step7_quote.s"
+	@echo "... step8_macros.o"
+	@echo "... step8_macros.i"
+	@echo "... step8_macros.s"
+	@echo "... step9_try.o"
+	@echo "... step9_try.i"
+	@echo "... step9_try.s"
 .PHONY : help
 
 

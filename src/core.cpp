@@ -145,7 +145,8 @@ EnvironmentP init_core(std::vector<std::string> argv) {
               if (args->size() > 1)
                 for (unsigned int i = 0; i < args->size() - 1; i++)
                   ret += pr_str(args->at(i), true) + " ";
-              ret += pr_str(args->at(args->size() - 1), true);
+              if (args->size() > 0)
+                ret += pr_str(args->at(args->size() - 1), true);
               writeln(ret);
               return nil();
             }));
@@ -155,12 +156,13 @@ EnvironmentP init_core(std::vector<std::string> argv) {
               if (args->size() > 1)
                 for (unsigned int i = 0; i < args->size() - 1; i++)
                   ret += pr_str(args->at(i), false) + " ";
+              if (args->size() > 0)
               ret += pr_str(args->at(args->size() - 1), false);
               writeln(ret);
               return nil();
             }));
 
-  core->set("read-string", func([](ListP args) {
+  core->set("read-string", func([core](ListP args) {
               if (args->at_least(1) and args->check_nth(0, STRING)) {
                 return read_str(pr_str(args->at(0), false))->el();
               } else {

@@ -66,7 +66,7 @@ Runtime::Runtime(std::string filename, std::vector<std::string> argv) {
       }));
 
   raised = nil();
-  post_init(*this, filename);
+  post_init(*this, filename);;;
 }
 
 void Runtime::quit() {
@@ -90,9 +90,9 @@ void Runtime::repl() {
 //
 //**************************************************************************
 
-static bool is_special_form(ElementP el, std::string form) {
-  return (el->type == SYMBOL and el->to<Symbol>()->value() == form);
-}
+// static bool is_special_form(ElementP el, std::string form) {
+//   return (el->type == SYMBOL and el->to<Symbol>()->value() == form);
+// }
 
 //**************************************************************************
 //
@@ -258,7 +258,7 @@ ElementP EVAL(ElementP ast, EnvironmentP env) {
           ElementP ast_first = ast->to<List>()->at(0);
 
           //***************************** let ******************************//
-          if (is_special_form(ast_first, "let*")) {
+          if (check::is_special_form(ast_first, "let*")) {
             if (u_ast->at_least(3)) {
               EnvironmentP new_env = environment(env)->to<Environment>();
               if (u_ast->check_nth(1, LIST)) {
@@ -446,8 +446,7 @@ ElementP EVAL(ElementP ast, EnvironmentP env) {
             ListP e_ast = eval_ast(ast, env)->to<List>();
             CHECK_N_TYPE_OR_EXC(
                 e_ast, 0, FUNCTION,
-                "apply: first element of list (" + pr_str(e_ast->at(0)) +
-                    ") is not a function",
+                "'" + pr_str(e_ast->at(0)) + "' not found",
                 {
                   FunctionP f = e_ast->at(0)->to<Function>();
                   ListP args = list()->to<List>();
@@ -469,7 +468,11 @@ ElementP EVAL(ElementP ast, EnvironmentP env) {
   }
 }
 
-std::string PRINT(ElementP res) { return pr_str(res, false); }
+std::string PRINT(ElementP res) {
+  if (res->type == EXCEPTION)
+    return "Exception: " + pr_str(res, false);
+  else return pr_str(res, true); 
+}
 
 std::string Runtime::rep(std::string expr) {
   return PRINT(EVAL(READ(expr), core_runtime));

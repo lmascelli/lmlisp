@@ -603,7 +603,8 @@ ElementP Reader::read_atom() {
 #ifdef _LM_DEBUG
       writeln("symbol " + peek());
 #endif
-      return sym(peek());
+      if (peek() == "nil") return nil();
+      else return sym(peek());
     }
   }
 }

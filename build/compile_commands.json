@@ -58,5 +58,41 @@
   "command": "/usr/bin/c++   -g -std=gnu++20 -o CMakeFiles/step3_env.dir/step3_env.cpp.o -c /home/leonardo/data/projects/lmlisp/step3_env.cpp",
   "file": "/home/leonardo/data/projects/lmlisp/step3_env.cpp",
   "output": "CMakeFiles/step3_env.dir/step3_env.cpp.o"
+},
+{
+  "directory": "/home/leonardo/data/projects/lmlisp/build",
+  "command": "/usr/bin/c++   -g -std=gnu++20 -o CMakeFiles/step4_if_fn_do.dir/step4_if_fn_do.cpp.o -c /home/leonardo/data/projects/lmlisp/step4_if_fn_do.cpp",
+  "file": "/home/leonardo/data/projects/lmlisp/step4_if_fn_do.cpp",
+  "output": "CMakeFiles/step4_if_fn_do.dir/step4_if_fn_do.cpp.o"
+},
+{
+  "directory": "/home/leonardo/data/projects/lmlisp/build",
+  "command": "/usr/bin/c++   -g -std=gnu++20 -o CMakeFiles/step5_tco.dir/step5_tco.cpp.o -c /home/leonardo/data/projects/lmlisp/step5_tco.cpp",
+  "file": "/home/leonardo/data/projects/lmlisp/step5_tco.cpp",
+  "output": "CMakeFiles/step5_tco.dir/step5_tco.cpp.o"
+},
+{
+  "directory": "/home/leonardo/data/projects/lmlisp/build",
+  "command": "/usr/bin/c++   -g -std=gnu++20 -o CMakeFiles/step6_file.dir/step6_file.cpp.o -c /home/leonardo/data/projects/lmlisp/step6_file.cpp",
+  "file": "/home/leonardo/data/projects/lmlisp/step6_file.cpp",
+  "output": "CMakeFiles/step6_file.dir/step6_file.cpp.o"
+},
+{
+  "directory": "/home/leonardo/data/projects/lmlisp/build",
+  "command": "/usr/bin/c++   -g -std=gnu++20 -o CMakeFiles/step7_quote.dir/step7_quote.cpp.o -c /home/leonardo/data/projects/lmlisp/step7_quote.cpp",
+  "file": "/home/leonardo/data/projects/lmlisp/step7_quote.cpp",
+  "output": "CMakeFiles/step7_quote.dir/step7_quote.cpp.o"
+},
+{
+  "directory": "/home/leonardo/data/projects/lmlisp/build",
+  "command": "/usr/bin/c++   -g -std=gnu++20 -o CMakeFiles/step8_macros.dir/step8_macros.cpp.o -c /home/leonardo/data/projects/lmlisp/step8_macros.cpp",
+  "file": "/home/leonardo/data/projects/lmlisp/step8_macros.cpp",
+  "output": "CMakeFiles/step8_macros.dir/step8_macros.cpp.o"
+},
+{
+  "directory": "/home/leonardo/data/projects/lmlisp/build",
+  "command": "/usr/bin/c++   -g -std=gnu++20 -o CMakeFiles/step9_try.dir/step9_try.cpp.o -c /home/leonardo/data/projects/lmlisp/step9_try.cpp",
+  "file": "/home/leonardo/data/projects/lmlisp/step9_try.cpp",
+  "output": "CMakeFiles/step9_try.dir/step9_try.cpp.o"
 }
 ]

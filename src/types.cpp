@@ -179,7 +179,7 @@ ElementP Environment::get(std::string key) {
   if (not is_nil(found_env)) {
     return found_env->to<Environment>()->env.at(key);
   } else
-    return exc("symbol: " + key + " not found");
+    return exc("'" +  key + "' not found");
 }
 
 void Environment::set(std::string key, ElementP value) {

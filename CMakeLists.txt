@@ -39,3 +39,27 @@ target_link_libraries(step2_eval ${PROJECT_NAME})
 add_executable(step3_env
   "step3_env.cpp")
 target_link_libraries(step3_env ${PROJECT_NAME})
+
+add_executable(step4_if_fn_do
+  "step4_if_fn_do.cpp")
+target_link_libraries(step4_if_fn_do ${PROJECT_NAME})
+
+add_executable(step5_tco
+  "step5_tco.cpp")
+target_link_libraries(step5_tco ${PROJECT_NAME})
+
+add_executable(step6_file
+  "step6_file.cpp")
+target_link_libraries(step6_file ${PROJECT_NAME})
+
+add_executable(step7_quote
+  "step7_quote.cpp")
+target_link_libraries(step7_quote ${PROJECT_NAME})
+
+add_executable(step8_macros
+  "step8_macros.cpp")
+target_link_libraries(step8_macros ${PROJECT_NAME})
+
+add_executable(step9_try
+  "step9_try.cpp")
+target_link_libraries(step9_try ${PROJECT_NAME})
