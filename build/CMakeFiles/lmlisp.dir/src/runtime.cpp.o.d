@@ -203,5 +203,4 @@ CMakeFiles/lmlisp.dir/src/runtime.cpp.o: \
  /home/leonardo/data/projects/lmlisp/src/reader.hpp \
  /usr/include/c++/13.1.1/optional /usr/include/c++/13.1.1/variant \
  /usr/include/c++/13.1.1/bits/parse_numbers.h \
- /home/leonardo/data/projects/lmlisp/src/utils.hpp \
  /usr/include/c++/13.1.1/stdlib.h

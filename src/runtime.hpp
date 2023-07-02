@@ -24,6 +24,11 @@ namespace lmlisp {
       static Runtime& get_current();
       void quit();
 
+      // EXCEPTIONS
+      static ElementP exc_value;
+      static bool raised;
+      static bool handled;
+
     private:
       Runtime(std::string filename, std::vector<std::string> argv);
       static Runtime* current;
@@ -31,9 +36,5 @@ namespace lmlisp {
       // STATUS
       bool running;
       EnvironmentP core_runtime;
-
-      // EXCEPTIONS
-      ElementP raised;
-      bool handled;
   };  
 }

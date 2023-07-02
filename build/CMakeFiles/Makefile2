@@ -74,6 +74,7 @@ all: CMakeFiles/step6_file.dir/all
 all: CMakeFiles/step7_quote.dir/all
 all: CMakeFiles/step8_macros.dir/all
 all: CMakeFiles/step9_try.dir/all
+all: CMakeFiles/stepA_mal.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -92,6 +93,7 @@ clean: CMakeFiles/step6_file.dir/clean
 clean: CMakeFiles/step7_quote.dir/clean
 clean: CMakeFiles/step8_macros.dir/clean
 clean: CMakeFiles/step9_try.dir/clean
+clean: CMakeFiles/stepA_mal.dir/clean
 .PHONY : clean
 
 #=============================================================================
@@ -379,6 +381,32 @@ step9_try: CMakeFiles/step9_try.dir/rule
 CMakeFiles/step9_try.dir/clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/step9_try.dir/build.make CMakeFiles/step9_try.dir/clean
 .PHONY : CMakeFiles/step9_try.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/stepA_mal.dir
+
+# All Build rule for target.
+CMakeFiles/stepA_mal.dir/all: CMakeFiles/lmlisp.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stepA_mal.dir/build.make CMakeFiles/stepA_mal.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stepA_mal.dir/build.make CMakeFiles/stepA_mal.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/leonardo/data/projects/lmlisp/build/CMakeFiles --progress-num=28,29 "Built target stepA_mal"
+.PHONY : CMakeFiles/stepA_mal.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/stepA_mal.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/leonardo/data/projects/lmlisp/build/CMakeFiles 9
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/stepA_mal.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/leonardo/data/projects/lmlisp/build/CMakeFiles 0
+.PHONY : CMakeFiles/stepA_mal.dir/rule
+
+# Convenience name for target.
+stepA_mal: CMakeFiles/stepA_mal.dir/rule
+.PHONY : stepA_mal
+
+# clean rule for target.
+CMakeFiles/stepA_mal.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stepA_mal.dir/build.make CMakeFiles/stepA_mal.dir/clean
+.PHONY : CMakeFiles/stepA_mal.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

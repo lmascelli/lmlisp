@@ -157,7 +157,7 @@ EnvironmentP init_core(std::vector<std::string> argv) {
                 for (unsigned int i = 0; i < args->size() - 1; i++)
                   ret += pr_str(args->at(i), false) + " ";
               if (args->size() > 0)
-              ret += pr_str(args->at(args->size() - 1), false);
+                ret += pr_str(args->at(args->size() - 1), false);
               writeln(ret);
               return nil();
             }));
@@ -166,7 +166,7 @@ EnvironmentP init_core(std::vector<std::string> argv) {
               if (args->at_least(1) and args->check_nth(0, STRING)) {
                 return read_str(pr_str(args->at(0), false))->el();
               } else {
-                return exc("read-string: argument must be a string")->el();
+                THROW("read-string: argument must be a string");
               }
             }));
 
@@ -317,7 +317,7 @@ EnvironmentP init_core(std::vector<std::string> argv) {
                 if (index >= 0 and index < static_cast<int>(l->size())) {
                   return l->at(index);
                 } else
-                  return exc("nth: index out of bounds")->el();
+                  THROW("nth: index out of bounds");
               } else if (args->size() == 2 and args->at(0)->type == VEC and
                          args->at(1)->type == NUMBER) {
                 VecP v = args->at(0)->to<Vec>();
@@ -329,10 +329,9 @@ EnvironmentP init_core(std::vector<std::string> argv) {
                 if (index >= 0 and index < static_cast<int>(v->size())) {
                   return v->at(index);
                 } else
-                  return exc("nth: index out of bounds")->el();
+                  THROW("nth: index out of bounds");
               } else
-                return exc("nth: arguments are a list or a vector and an index")
-                    ->el();
+                THROW("nth: arguments are a list or a vector and an index");
             }));
 
   core->set("first", func([](ListP args) {
@@ -481,7 +480,7 @@ EnvironmentP init_core(std::vector<std::string> argv) {
   core->set("get", func([](ListP args){
     if (args->at_least(2) and args->at(0)->type == DICT) {
       return args->at(0)->to<Dict>()->get(args->at(1));
-    } else return exc("get: requires a dict and a key")->el();
+    } else THROW("get: requires a dict and a key");
   }));
 
   core->set("contains?", func([](ListP args){
@@ -704,32 +703,39 @@ EnvironmentP init_core(std::vector<std::string> argv) {
 
   core->set(
       "swap!", func([core](ListP args) {
-        TEST_DO_OR_EXC(
-            args->at_least(2) and args->at(0)->type == ATOM and
-                args->at(1)->type == FUNCTION,
-            {
-              ListP funcall = list();
-              funcall->append(args->at(1));
-              funcall->append(args->at(0)->to<Atom>()->ref);
-              for (unsigned int i = 2; i < args->size(); i++)
-                funcall->append(args->at(i));
-              ElementP newval = EVAL(funcall, core);
-              args->at(0)->to<Atom>()->ref = newval;
-              return newval;
-            },
-            "swap!: takes an atom as first argument, a function as second and "
-            "others function parameters as rest");
+        if(args->at_least(2) and args->at(0)->type == ATOM and
+            args->at(1)->type == FUNCTION) {
+          ListP funcall = list();
+          funcall->append(args->at(1));
+          funcall->append(args->at(0)->to<Atom>()->ref);
+          for (unsigned int i = 2; i < args->size(); i++)
+          funcall->append(args->at(i));
+          ElementP newval = EVAL(funcall, core);
+          args->at(0)->to<Atom>()->ref = newval;
+          return newval;
+        } else {
+          THROW("swap!: takes an atom as first argument, a function as second"
+                "and others function parameters as rest");
+        }
       }));
 
   // ************************** EXCEPTIONS ********************************
 
   core->set("throw", func([](ListP args) {
               if (args->at(0)->type == STRING) {
-                ExceptionP e = exc(args->at(0)->to<String>()->value());
-                return e;
-              } else {
-                ExceptionP e = exc("throw: argument must be an exception");
-                return e;
+                THROW(args->at(0)->to<String>()->value());
+              } else if (args->at(0)->type == DICT and 
+                  args->at(0)->to<Dict>()->keys()->size() > 0) {
+                DictP e_dict = args->at(0)->to<Dict>();
+                ElementP key = e_dict->keys()->at(0);
+                ElementP value = e_dict->get(key);
+                THROW(pr_str(key) + ":" + pr_str(value));
+              }
+              else {
+              // THROW("\\" + pr_str(args->at(0)) + "\\");
+                Runtime::raised = true;
+                Runtime::exc_value = args->at(0);
+                return nil();
               }
             }));
 

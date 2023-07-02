@@ -9,5 +9,6 @@
 /home/leonardo/data/projects/lmlisp/build/CMakeFiles/step7_quote.dir
 /home/leonardo/data/projects/lmlisp/build/CMakeFiles/step8_macros.dir
 /home/leonardo/data/projects/lmlisp/build/CMakeFiles/step9_try.dir
+/home/leonardo/data/projects/lmlisp/build/CMakeFiles/stepA_mal.dir
 /home/leonardo/data/projects/lmlisp/build/CMakeFiles/edit_cache.dir
 /home/leonardo/data/projects/lmlisp/build/CMakeFiles/rebuild_cache.dir

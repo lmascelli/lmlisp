@@ -63,3 +63,7 @@ target_link_libraries(step8_macros ${PROJECT_NAME})
 add_executable(step9_try
   "step9_try.cpp")
 target_link_libraries(step9_try ${PROJECT_NAME})
+
+add_executable(stepA_mal
+  "stepA_mal.cpp")
+target_link_libraries(stepA_mal ${PROJECT_NAME})

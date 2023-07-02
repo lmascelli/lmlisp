@@ -94,5 +94,11 @@
   "command": "/usr/bin/c++   -g -std=gnu++20 -o CMakeFiles/step9_try.dir/step9_try.cpp.o -c /home/leonardo/data/projects/lmlisp/step9_try.cpp",
   "file": "/home/leonardo/data/projects/lmlisp/step9_try.cpp",
   "output": "CMakeFiles/step9_try.dir/step9_try.cpp.o"
+},
+{
+  "directory": "/home/leonardo/data/projects/lmlisp/build",
+  "command": "/usr/bin/c++   -g -std=gnu++20 -o CMakeFiles/stepA_mal.dir/stepA_mal.cpp.o -c /home/leonardo/data/projects/lmlisp/stepA_mal.cpp",
+  "file": "/home/leonardo/data/projects/lmlisp/stepA_mal.cpp",
+  "output": "CMakeFiles/stepA_mal.dir/stepA_mal.cpp.o"
 }
 ]

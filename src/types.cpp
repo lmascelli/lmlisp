@@ -1,5 +1,6 @@
 #include "types.hpp"
 #include "externals.hpp"
+#include "runtime.hpp"
 #include <cassert>
 #include <memory>
 #include <stdlib.h>
@@ -175,11 +176,20 @@ ElementP Environment::find(std::string key) {
 }
 
 ElementP Environment::get(std::string key) {
+  if (key == "let*" or key == "if" or key == "def!" or key == "fn*" or 
+      key == "defmacro!" or key == "do" or key == "quote" or 
+      key == "quasiquoteexpand" or key == "quasiquote" or 
+      key == "macroexpand" or key == "try*" or key == "catch*") {
+    return nil();
+  }
   ElementP found_env = find(key);
   if (not is_nil(found_env)) {
     return found_env->to<Environment>()->env.at(key);
-  } else
-    return exc("'" +  key + "' not found");
+  } else {
+    Runtime::raised = true;
+    Runtime::exc_value = str("'" + key + "' not found");
+    return nil();
+  }
 }
 
 void Environment::set(std::string key, ElementP value) {
@@ -234,7 +244,7 @@ void Dict::append(ElementP key, ElementP value) {
     elements.insert_or_assign(key->to<String>()->value(), value);
     break;
   case KEYWORD:
-    elements.insert_or_assign(":" + key->to<Keyword>()->value(), value);
+    elements.insert_or_assign("\xff" + key->to<Keyword>()->value(), value);
     break;
   default:
     exit(1);
@@ -248,7 +258,7 @@ ElementP Dict::get(ElementP key) {
     key_string = key->to<String>()->value();
     break;
   case KEYWORD:
-    key_string = ":" + key->to<Keyword>()->value();
+    key_string = "\xff" + key->to<Keyword>()->value();
     break;
   default:
     return exc("not a valid key passed")->el();
@@ -267,7 +277,7 @@ ElementP Dict::get(ElementP key) {
     key_string = key->to<String>()->value();
     break;
   case KEYWORD:
-    key_string = ":" + key->to<Keyword>()->value();
+    key_string = "\xff" + key->to<Keyword>()->value();
     break;
   default:
     return exc("not a valid key passed")->el();
@@ -283,7 +293,7 @@ ListP Dict::keys() const {
     keys_strings.push_back(el.first);
   }
   for (int i = keys_strings.size() - 1; i >= 0; i--) {
-    if (keys_strings[i].starts_with(":")) {
+    if (keys_strings[i].starts_with("\xff")) {
       ret->append(kw(keys_strings[i].substr(1)));
     } else {
       ret->append(str(keys_strings[i]));

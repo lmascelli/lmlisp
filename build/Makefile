@@ -259,6 +259,19 @@ step9_try/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/step9_try.dir/build.make CMakeFiles/step9_try.dir/build
 .PHONY : step9_try/fast
 
+#=============================================================================
+# Target rules for targets named stepA_mal
+
+# Build rule for target.
+stepA_mal: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 stepA_mal
+.PHONY : stepA_mal
+
+# fast build rule for target.
+stepA_mal/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stepA_mal.dir/build.make CMakeFiles/stepA_mal.dir/build
+.PHONY : stepA_mal/fast
+
 src/core.o: src/core.cpp.o
 .PHONY : src/core.o
 
@@ -643,6 +656,30 @@ step9_try.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/step9_try.dir/build.make CMakeFiles/step9_try.dir/step9_try.cpp.s
 .PHONY : step9_try.cpp.s
 
+stepA_mal.o: stepA_mal.cpp.o
+.PHONY : stepA_mal.o
+
+# target to build an object file
+stepA_mal.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stepA_mal.dir/build.make CMakeFiles/stepA_mal.dir/stepA_mal.cpp.o
+.PHONY : stepA_mal.cpp.o
+
+stepA_mal.i: stepA_mal.cpp.i
+.PHONY : stepA_mal.i
+
+# target to preprocess a source file
+stepA_mal.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stepA_mal.dir/build.make CMakeFiles/stepA_mal.dir/stepA_mal.cpp.i
+.PHONY : stepA_mal.cpp.i
+
+stepA_mal.s: stepA_mal.cpp.s
+.PHONY : stepA_mal.s
+
+# target to generate assembly for a file
+stepA_mal.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stepA_mal.dir/build.make CMakeFiles/stepA_mal.dir/stepA_mal.cpp.s
+.PHONY : stepA_mal.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -662,6 +699,7 @@ help:
 	@echo "... step7_quote"
 	@echo "... step8_macros"
 	@echo "... step9_try"
+	@echo "... stepA_mal"
 	@echo "... src/core.o"
 	@echo "... src/core.i"
 	@echo "... src/core.s"
@@ -710,6 +748,9 @@ help:
 	@echo "... step9_try.o"
 	@echo "... step9_try.i"
 	@echo "... step9_try.s"
+	@echo "... stepA_mal.o"
+	@echo "... stepA_mal.i"
+	@echo "... stepA_mal.s"
 .PHONY : help
 
 
