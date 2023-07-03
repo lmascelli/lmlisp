@@ -1,40 +1,42 @@
 #pragma once
 #include "externals.hpp"
 #include "types.hpp"
+#include <optional>
 
 namespace lmlisp {
-  ElementP READ(std::string input);
-  ElementP eval_ast(ElementP ast, EnvironmentP env);
-  ElementP EVAL(ElementP input, EnvironmentP env);
-  std::string PRINT(ElementP input);
+ElementP READ(std::string input);
+ElementP eval_ast(ElementP ast, EnvironmentP env);
+ElementP EVAL(ElementP input, EnvironmentP env);
+std::string PRINT(ElementP input);
 
-  ElementP cons(ElementP el, ElementP l);
-  ElementP concat(std::vector<ElementP> args);
+ElementP apply(FunctionP f, ListP args,
+               std::optional<EnvironmentP> env = std::nullopt);
+ElementP cons(ElementP el, ElementP l);
+ElementP concat(std::vector<ElementP> args);
 
-  class Runtime {
-    public:
-      Runtime(const Runtime& o) = delete;
-      Runtime(const Runtime&& o) = delete;
-      std::string rep(std::string input);
+class Runtime {
+public:
+  Runtime(const Runtime &o) = delete;
+  Runtime(const Runtime &&o) = delete;
 
-      void repl();
-      friend Runtime& init(
-          std::string filename,
-          std::vector<std::string> argv);
-      static Runtime& get_current();
-      void quit();
+  std::string rep(std::string input);
 
-      // EXCEPTIONS
-      static ElementP exc_value;
-      static bool raised;
-      static bool handled;
+  void repl();
+  friend Runtime &init(std::string filename, std::vector<std::string> argv);
+  static Runtime &get_current();
+  void quit();
 
-    private:
-      Runtime(std::string filename, std::vector<std::string> argv);
-      static Runtime* current;
+  // EXCEPTIONS
+  static ElementP exc_value;
+  static bool raised;
+  static bool handled;
 
-      // STATUS
-      bool running;
-      EnvironmentP core_runtime;
-  };  
-}
+private:
+  Runtime(std::string filename, std::vector<std::string> argv);
+  static Runtime *current;
+
+  // STATUS
+  bool running;
+  EnvironmentP core_runtime;
+};
+} // namespace lmlisp

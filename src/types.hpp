@@ -59,12 +59,14 @@ public:
   }
   ElementP el();
   bool compare(ElementP el);
+  friend ElementP copy(ElementP el);
 };
 
 // NIL
 class Nil : public Element {
 public:
   Nil();
+  friend ElementP copy(ElementP el);
 };
 
 // FUNCTION
@@ -78,6 +80,9 @@ public:
   ElementP apply(ListP args);
   ElementP get_exprs();
   bool is_macro;
+  friend ElementP copy(ElementP el);
+  friend ElementP get_meta(ElementP el);
+  friend void set_meta(ElementP el, ElementP meta);
 
 private:
   ListP binds;
@@ -86,6 +91,7 @@ private:
   bool last_is_variadic;
   std::function<ElementP(ListP)> f_native;
   bool native;
+  ElementP meta;
 };
 
 // ENVIRONMENT
@@ -97,6 +103,7 @@ public:
   ElementP find(std::string key);
   void set(std::string key, ElementP value);
   int get_level() const;
+  friend ElementP copy(ElementP el);
 
 private:
   std::unordered_map<std::string, ElementP> env;
@@ -110,6 +117,7 @@ class Boolean : public Element {
 public:
   Boolean(bool logic_value = false);
   bool value() const;
+  friend ElementP copy(ElementP el);
 
 private:
   bool logic_value;
@@ -124,9 +132,13 @@ public:
   unsigned int size() const;
   bool at_least(unsigned int n) const;
   bool check_nth(int n, TYPES t) const;
+  friend ElementP copy(ElementP el);
+  friend ElementP get_meta(ElementP el);
+  friend void set_meta(ElementP el, ElementP meta);
 
 private:
   std::vector<ElementP> elements;
+  ElementP meta;
 };
 
 // VEC
@@ -139,9 +151,13 @@ public:
   bool at_least(unsigned int n) const;
   bool check_nth(int n, TYPES t) const;
   ListP listed();
+  friend ElementP copy(ElementP el);
+  friend ElementP get_meta(ElementP el);
+  friend void set_meta(ElementP el, ElementP meta);
 
 private:
   std::vector<ElementP> elements;
+  ElementP meta;
 };
 
 // DICT
@@ -152,10 +168,13 @@ public:
   ElementP get(ElementP key);
   ElementP contains(ElementP key);
   ListP keys() const;
+  friend ElementP copy(ElementP el);
+  friend ElementP get_meta(ElementP el);
+  friend void set_meta(ElementP el, ElementP meta);
 
 private:
-  // TODO make an hashmap that distinguish between string and keywords
   std::unordered_map<std::string, ElementP> elements;
+  ElementP meta;
 };
 
 // NUMBER
@@ -165,6 +184,8 @@ public:
   Number(float number);
   float value() const;
 
+  friend ElementP copy(ElementP el);
+
 private:
   float data;
 };
@@ -173,6 +194,7 @@ class Number : public Element {
 public:
   Number(int number);
   int value() const;
+  friend ElementP copy(ElementP el);
 
 private:
   int data;
@@ -185,6 +207,8 @@ public:
   Symbol(std::string symbol);
   std::string value() const;
 
+  friend ElementP copy(ElementP el);
+
 private:
   std::string data;
 };
@@ -194,6 +218,8 @@ class Keyword : public Element {
 public:
   Keyword(std::string keyword);
   std::string value() const;
+
+  friend ElementP copy(ElementP el);
 
 private:
   std::string data;
@@ -205,6 +231,8 @@ public:
   String(std::string string);
   std::string value() const;
 
+  friend ElementP copy(ElementP el);
+
 private:
   std::string data;
 };
@@ -215,6 +243,8 @@ class Atom : public Element {
 public:
   Atom(ElementP el);
   ElementP ref;
+
+  friend ElementP copy(ElementP el);
 };
 
 // EXCEPTION
@@ -223,6 +253,8 @@ class Exception : public Element {
 public:
   Exception(std::string msg);
   std::string value() const;
+
+  friend ElementP copy(ElementP el);
 
 private:
   std::string msg;
@@ -247,5 +279,8 @@ ExceptionP exc(std::string msg);
 
 // UTILITY FUNCTIONS
 
+ElementP copy(ElementP el);
 inline bool is_nil(ElementP el);
+ElementP get_meta(ElementP el);
+void set_meta(ElementP el, ElementP meta);
 } // namespace lmlisp

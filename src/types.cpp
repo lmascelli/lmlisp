@@ -1,5 +1,6 @@
 #include "types.hpp"
 #include "externals.hpp"
+#include "macros.hpp"
 #include "runtime.hpp"
 #include <cassert>
 #include <memory>
@@ -113,6 +114,7 @@ Function::Function(std::function<ElementP(ListP)> f_native)
     : Element(FUNCTION) {
   native = true;
   this->f_native = f_native;
+  meta = nil();
 }
 
 Function::Function(EnvironmentP outer, ListP binds, ElementP exprs,
@@ -123,11 +125,13 @@ Function::Function(EnvironmentP outer, ListP binds, ElementP exprs,
   this->exprs = exprs;
   this->binds = binds;
   this->last_is_variadic = last_is_variadic;
+  meta = nil();
 }
 
 bool Function::is_native() const { return native; }
 
-EnvironmentP Function::create_env([[maybe_unused]]EnvironmentP outer, ListP args) {
+EnvironmentP Function::create_env([[maybe_unused]] EnvironmentP outer,
+                                  ListP args) {
   EnvironmentP apply_env = environment(env);
   if (binds->size() > 0) {
     for (unsigned int i = 0; i < binds->size() - 1; i++) {
@@ -176,9 +180,9 @@ ElementP Environment::find(std::string key) {
 }
 
 ElementP Environment::get(std::string key) {
-  if (key == "let*" or key == "if" or key == "def!" or key == "fn*" or 
-      key == "defmacro!" or key == "do" or key == "quote" or 
-      key == "quasiquoteexpand" or key == "quasiquote" or 
+  if (key == "let*" or key == "if" or key == "def!" or key == "fn*" or
+      key == "defmacro!" or key == "do" or key == "quote" or
+      key == "quasiquoteexpand" or key == "quasiquote" or
       key == "macroexpand" or key == "try*" or key == "catch*") {
     return nil();
   }
@@ -204,20 +208,20 @@ Boolean::Boolean(bool logic_value)
 bool Boolean::value() const { return logic_value; }
 
 // LIST
-List::List() : Element(LIST) {}
+List::List() : Element(LIST) { meta = nil(); }
 void List::append(ElementP el) { elements.push_back(el); }
 ElementP List::at(unsigned int i) const { return elements[i]; }
 unsigned int List::size() const { return elements.size(); }
 bool List::at_least(unsigned int n) const { return size() >= n; }
 bool List::check_nth(int n, TYPES t) const {
-  if (at_least(n+1) and at(n)->type == t)
+  if (at_least(n + 1) and at(n)->type == t)
     return true;
   else
     return false;
 }
 
 // VEC
-Vec::Vec() : Element(VEC) {}
+Vec::Vec() : Element(VEC) { meta = nil(); }
 void Vec::append(ElementP el) { elements.push_back(el); }
 ElementP Vec::at(unsigned int i) const { return elements[i]; }
 unsigned int Vec::size() const { return elements.size(); }
@@ -236,7 +240,7 @@ ListP Vec::listed() {
 }
 
 // DICT
-Dict::Dict() : Element(DICT) {}
+Dict::Dict() : Element(DICT) { meta = nil(); }
 
 void Dict::append(ElementP key, ElementP value) {
   switch (key->type) {
@@ -270,7 +274,7 @@ ElementP Dict::get(ElementP key) {
     return nil();
 }
 
-  ElementP Dict::contains(ElementP key){
+ElementP Dict::contains(ElementP key) {
   std::string key_string;
   switch (key->type) {
   case STRING:
@@ -284,7 +288,7 @@ ElementP Dict::get(ElementP key) {
   }
 
   return boolean(elements.contains(key_string));
-  }
+}
 
 ListP Dict::keys() const {
   ListP ret = list();
@@ -360,5 +364,125 @@ ExceptionP exc(std::string msg) { return std::make_shared<Exception>(msg); }
 // UTILITY FUNCTIONS
 
 inline bool is_nil(ElementP el) { return el->type == NIL; }
-} // namespace lmlisp
 
+ElementP copy(ElementP el) {
+  ElementP ret;
+  switch (el->type) {
+  case NIL: {
+    ret = nil();
+  } break;
+  case ENVIRONMENT: {
+    EnvironmentP e_orig = el->to<Environment>();
+    ret->to<Environment>()->outer = environment(e_orig->outer);
+    ret->to<Environment>()->level = e_orig->level;
+    ret->to<Environment>()->exprs = list();
+    for (unsigned int i=0; i < e_orig->exprs->size(); ++i){
+      ret->to<Environment>()->exprs->append(copy(e_orig->exprs->at(i)));
+    }
+    for (const auto& [key, value] : e_orig->env) {
+      ret->to<Environment>()->env.insert({key, copy(value)});
+    }
+  } break;
+  case FUNCTION: {
+    FunctionP f_orig = el->to<Function>();
+    if (f_orig->is_native()) {
+      ret = func(f_orig->f_native);
+    } else {
+      ret = func(f_orig->env, f_orig->binds, f_orig->exprs,
+                 f_orig->last_is_variadic);
+    }
+  } break;
+  case BOOLEAN: {
+    ret = boolean(el->to<Boolean>()->value());
+                }
+                break;
+  case NUMBER: {
+    ret = num(el->to<Number>()->value());
+                }
+                break;
+  case SYMBOL: {
+    ret = sym(el->to<Symbol>()->value());
+                }
+                break;
+  case STRING: {
+    ret = str(el->to<String>()->value());
+                }
+                break;
+  case KEYWORD: {
+    ret = kw(el->to<Keyword>()->value());
+                }
+                break;
+  case EXCEPTION: {
+    ret = exc(el->to<Exception>()->value());
+                }
+                break;
+  case ATOM: {
+    ret = atom(copy(el->to<Atom>()->ref));
+                }
+                break;
+  case LIST: {
+    ret = list();
+    ListP l_orig = el->to<List>();
+    for (unsigned int i=0; i<l_orig->size();i++){
+      ret->to<List>()->append(copy(l_orig->at(i)));
+    }
+    ret->to<List>()->meta = copy(l_orig->meta);
+             }
+             break;
+  case VEC: {
+    ret = vec();
+    VecP v_orig = el->to<Vec>();
+    for (unsigned int i=0; i<v_orig->size();i++){
+      ret->to<Vec>()->append(copy(v_orig->at(i)));
+    }
+    ret->to<Vec>()->meta = copy(v_orig->meta);
+             }
+             break;
+  case DICT: {
+    ret = dict();
+    DictP d_orig = el->to<Dict>();
+    for (const auto& [key, value] : d_orig->elements) {
+      ret->to<Dict>()->elements.insert({key, copy(value)});
+    }
+    ret->to<Dict>()->meta = copy(d_orig->meta);
+             }
+             break;
+  }
+  return ret;
+}
+
+ElementP get_meta(ElementP el) {
+  switch (el->type) {
+    case FUNCTION:
+      return el->to<Function>()->meta;
+    case LIST:
+      return el->to<List>()->meta;
+    case VEC:
+      return el->to<Vec>()->meta;
+    case DICT:
+      return el->to<Dict>()->meta;
+    default:
+      THROW("only functions, lists, vectors and hash-maps have meta-data");
+  }
+}
+
+void set_meta(ElementP el, ElementP meta) {
+  switch (el->type) {
+    case FUNCTION:
+      el->to<Function>()->meta = meta;
+      break;
+    case LIST:
+      el->to<List>()->meta = meta;
+      break;
+    case VEC:
+      el->to<Vec>()->meta = meta;
+      break;
+    case DICT:
+      el->to<Dict>()->meta = meta;
+      break;
+    default:
+      Runtime::get_current().raised = true;
+      Runtime::get_current().exc_value = str("only functions, lists, vectors and hash-maps have meta-data");
+  }
+}
+} // namespace lmlisp
