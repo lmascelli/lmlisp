@@ -452,8 +452,9 @@ ElementP EVAL(ElementP ast, EnvironmentP env) {
             if (u_ast->at_least(3) and u_ast->check_nth(1, SYMBOL)) {
               ElementP ret = EVAL(u_ast->at(2), env);
               if (ret->type == FUNCTION) {
-                ret->to<Function>()->is_macro = true;
-                env->set(u_ast->at(1)->to<Symbol>()->value(), ret);
+                ElementP ret_as_m = copy(ret);
+                ret_as_m->to<Function>()->is_macro = true;
+                env->set(u_ast->at(1)->to<Symbol>()->value(), ret_as_m);
                 return ret;
               } else
                 THROW("defmacro!: define a function as macro");

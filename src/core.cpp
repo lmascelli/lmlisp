@@ -283,7 +283,9 @@ EnvironmentP init_core(std::vector<std::string> argv) {
 
   core->set("fn?", func([](ListP args) {
               if (args->size() == 1) {
-                return boolean(args->at(0)->type == FUNCTION)->el();
+                return boolean(args->at(0)->type == FUNCTION and
+                               not args->at(0)->to<Function>()->is_macro)
+                    ->el();
               } else
                 return exc("fn?: requires one argument")->el();
             }));
@@ -473,6 +475,43 @@ EnvironmentP init_core(std::vector<std::string> argv) {
               for (unsigned int i = 0; i < args->size(); i++)
                 ret += pr_str(args->at(i), false);
               return str(ret)->el();
+            }));
+
+  core->set("seq", func([](ListP args) {
+              if (args->at_least(1)) {
+                switch (args->at(0)->type) {
+                case NIL:
+                  return nil()->el();
+                case STRING: {
+                  std::string content = args->at(0)->to<String>()->value();
+                  if (content.empty())
+                    return nil()->el();
+                  else {
+                    ListP ret = list();
+                    for (unsigned int i=0; i < content.length(); ++i) {
+                      ret->append(str(content.substr(i, 1)));
+                    }
+                    return ret->el();
+                  }
+                } break;
+                case LIST: {
+                if (args->at(0)->to<List>()->size() == 0) return nil()->el();
+                else return args->at(0);
+                }
+                case VEC:
+                if (args->at(0)->to<Vec>()->size() == 0) return nil()->el();
+                else {
+                  ListP ret = list();
+                  for (unsigned int i=0; i<args->at(0)->to<Vec>()->size(); ++i)
+                    ret->append(args->at(0)->to<Vec>()->at(i));
+                  return ret->el();
+                }
+                default:
+                  THROW("seq: argument must be a list, vector, string or nil");
+                }
+              } else {
+                THROW("seq: pass at least one argument");
+              }
             }));
 
   // ***************************** SYMBOL **********************************
