@@ -22,6 +22,8 @@ function _test
   param (
     $step
   )
+  Copy-Item -Recurse -Force -Path "~/data/projects/mal/impls/c/run" `
+   -Destination "~/data/projects/mal/impls/cpp/run"
   Copy-Item -Recurse -Force -Path build/* -Destination "~/data/projects/mal/impls/cpp"
   Push-Location "~/data/projects/mal"
   Invoke-Expression "make test^cpp^step$step"

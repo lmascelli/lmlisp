@@ -25,45 +25,49 @@ target_link_libraries(${PROJECT_NAME} PRIVATE
   all_warnings warnings_are_errors)
 
 add_executable(step0_repl
-  "step0_repl.cpp")
+  "main.cpp")
 target_link_libraries(step0_repl ${PROJECT_NAME})
 
 add_executable(step1_read_print
-  "step1_read_print.cpp")
+  "main.cpp")
 target_link_libraries(step1_read_print ${PROJECT_NAME})
 
 add_executable(step2_eval
-  "step2_eval.cpp")
+  "main.cpp")
 target_link_libraries(step2_eval ${PROJECT_NAME})
 
 add_executable(step3_env
-  "step3_env.cpp")
+  "main.cpp")
 target_link_libraries(step3_env ${PROJECT_NAME})
 
 add_executable(step4_if_fn_do
-  "step4_if_fn_do.cpp")
+  "main.cpp")
 target_link_libraries(step4_if_fn_do ${PROJECT_NAME})
 
 add_executable(step5_tco
-  "step5_tco.cpp")
+  "main.cpp")
 target_link_libraries(step5_tco ${PROJECT_NAME})
 
 add_executable(step6_file
-  "step6_file.cpp")
+  "main.cpp")
 target_link_libraries(step6_file ${PROJECT_NAME})
 
 add_executable(step7_quote
-  "step7_quote.cpp")
+  "main.cpp")
 target_link_libraries(step7_quote ${PROJECT_NAME})
 
 add_executable(step8_macros
-  "step8_macros.cpp")
+  "main.cpp")
 target_link_libraries(step8_macros ${PROJECT_NAME})
 
 add_executable(step9_try
-  "step9_try.cpp")
+  "main.cpp")
 target_link_libraries(step9_try ${PROJECT_NAME})
 
 add_executable(stepA_mal
-  "stepA_mal.cpp")
+  "main.cpp")
 target_link_libraries(stepA_mal ${PROJECT_NAME})
+
+add_executable(mal
+  "main.cpp")
+target_link_libraries(mal ${PROJECT_NAME})
