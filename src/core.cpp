@@ -5,7 +5,7 @@
 #include "reader.hpp"
 #include "runtime.hpp"
 #include <cmath>
-#include <ctime>
+#include <chrono>
 #include <fstream>
 #include <sstream>
 #include <string>
@@ -42,6 +42,12 @@ StringP type(ElementP el) {
   default:
     return str("type unknown");
   }
+}
+
+unsigned int timeMillisec() {
+  using namespace std::chrono;
+  return duration_cast<milliseconds>(system_clock::now()
+      .time_since_epoch()).count();
 }
 
 EnvironmentP init_core(std::vector<std::string> argv) {
@@ -132,7 +138,7 @@ EnvironmentP init_core(std::vector<std::string> argv) {
       }));
 
   core->set("time-ms", func([]([[maybe_unused]] ListP args) {
-              return num(std::time(NULL));
+              return num(timeMillisec());
             }));
 
   // ****************************** IO ************************************

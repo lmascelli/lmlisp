@@ -12,7 +12,7 @@ void lmlisp::writeln(std::string line) {
   std::cout << line << std::endl;
 }
 
-int main([[maybe_unused]]int argc, [[maybe_unused]]char** argv) {
-  std::string input;
-  lmlisp::init().repl();
+int main(int argc, char** argv) {
+  std::string filename = argc > 1 ? argv[1] : "";
+  lmlisp::init(filename).repl();
 }
