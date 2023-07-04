@@ -13,7 +13,12 @@ function run
     $step
   )
   Push-Location build
-  Invoke-Expression "./step$step*"
+  if ($step -eq $null) {
+    Invoke-Expression "./mal"
+  }
+  else {
+    Invoke-Expression "./step$step*"
+  }
   Pop-Location
 }
 
